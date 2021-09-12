@@ -1,0 +1,23 @@
+.carousel{
+  width: 100vw;
+  height:100vh;
+  
+    img{
+      width: 100vw;
+      height: 600px;
+      object-fit: contain;
+    }
+  }
+  
+@media (max-width:740px){
+  .carousel{
+
+    background-size: contain;
+   
+      height: 45vh;
+    
+  }
+}
+.slick-slide {
+  width: 100vw;
+}

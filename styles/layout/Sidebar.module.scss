@@ -1,0 +1,128 @@
+@import '../variant//varinant';
+
+.sidebar{
+  width: 300px;
+  height: 100vh;
+  background-color:$second-color ;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 10;
+  transform: translateX(0%);
+  transition: all ease-in 0.2s;
+  opacity: 1;
+  @media (max-width:740px){
+    width: 70vw;
+  }
+  &__head{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid $main-color;
+    &__icon{
+      cursor: pointer;
+    }
+  }
+  &__body{
+    &__item{
+      position: relative;
+      cursor: pointer;
+      padding: 20px;
+      // display: flex;
+      // justify-content:flex-start;
+      // align-items: center;
+      transition: all ease-in 0.2s;
+    
+      &:hover{
+        background-color: $hover-color;
+        color: $main-color;
+        .wrapDanhmuc{
+        
+          &::after{
+            // width:  100%;
+          }
+        }
+      }
+      .wrapDanhmuc{
+        width: 115px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        &::after{
+          transition: all ease-in 0.2s;
+          content: '';
+          height: 2px;
+          width: 0;
+          background-color: $main-color;
+          position: absolute;
+          left: 1px;
+          right: 0;
+          bottom: -4px;
+        }
+      }
+      span{
+        font-weight: bold;
+        margin-left: 10px;
+      }
+      .moreIcon{
+       position: absolute;
+       right: 10px;
+       top: 35px;
+       transform: translateY(-50%);
+       transition: all ease-in 0.2s;
+      }
+      .moreIconOpen{
+        transform:rotate(180deg)
+        translateY(50%);
+        transition: all ease-in 0.2s;
+      }
+    
+    }
+    &__itemActive{
+         color:$main-color;
+         .wrapDanhmuc{
+           &::after{
+             width:  100%;
+           }
+         }
+    }
+  }
+}
+  .listProduct{
+   display: none;
+  li{
+   
+    margin-top: 10px;
+    margin-left: 20px;
+    &:hover{
+      color: $hover-color;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+  }
+}
+.listProductApear{
+  display: block;
+  animation: apearListProduct ease-in 0.2s;
+  transform-origin: top right;
+}
+.sidebar__hidden{
+  transform: translateX(-100%);
+  transition: all ease-in 0.2s;
+  opacity: 0;
+}
+@keyframes apearListProduct{
+  0%{
+    opacity: 0;
+    transform: scale(0);
+    height: 0;
+  }
+  100%{
+    opacity: 1;
+    transform: scale(1);
+    height: 100%;
+  }
+}

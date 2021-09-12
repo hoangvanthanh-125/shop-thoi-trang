@@ -1,0 +1,109 @@
+@import '../../variant/varinant';
+@import '../../mixin';
+
+.header {
+  // color:$second-color;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  padding: 20px;
+  background-color: $main-color;
+  background: transparent;
+  z-index: 5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all ease-in 0.2s;
+
+  &__left {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex: 0.2;
+    width: 400px;
+    padding: 0 20px;
+
+    h3 {
+      color: $second-color;
+     
+    }
+
+    .iconBar {
+      display: none;
+      margin-right: 20px;
+      // color: $second-text-color;
+    }
+  }
+
+  &__middle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0.6;
+    
+  }
+  &__searchMobile{
+    position: fixed;
+    top:0;
+    right: 0;
+    left: 0;
+    z-index: 11;
+    background-color:$main-color;
+    transition: all ease-in 0.2s ;
+    padding: 20px;
+  }
+  &__searchMobileAppear{
+    transform: translateY(-100%);
+    transition: all ease-in 0.2s ;
+    
+  }
+
+}
+.formSearch {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @include input-style();
+  background-color: $second-color;
+
+  input {
+    border: none;
+    flex: 1;
+    outline: none;
+  }
+
+  .iconSearch {
+    cursor: pointer;
+    color: $main-color;
+  }
+}
+
+//mobile
+@media (max-width:740px){
+.header > .header__left > .iconBar{
+  display: block;
+}
+.header{
+  &__middle{
+    display: none;
+  }
+  
+}
+}
+@media (max-width:1024px){
+  
+  .header{
+    font-size: $font-size-tablet;
+    &__right{
+      
+    }
+    
+  }
+  }
+  .headerColor{
+    background-color: $main-color;
+    transition: all ease-in 0.2s;
+  }

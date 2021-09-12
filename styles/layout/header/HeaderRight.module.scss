@@ -1,0 +1,347 @@
+@import '../../variant/varinant';
+@import '../../mixin';
+
+.header__right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 450px;
+
+  ul {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-right: 25px;
+    color: $second-text-color;
+    padding-left: 0;
+
+    li {
+      display: block;
+      margin-left: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      position: relative;
+      transition: all ease-in-out 0.5s;
+      &:first-child{
+        margin-left: 0;
+      }
+
+
+      &::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 1px;
+        background-color: $second-color;
+        bottom: -5px;
+        left: 0;
+        right: 0;
+        transition: all ease-in-out 0.5s;
+
+      }
+
+      &:hover {
+        color: $second-color;
+
+        &::after {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .iconSearch {
+    cursor: pointer;
+    color: $second-text-color;
+    margin-right: 20px;
+    display: none;
+  }
+
+  .iconAcc {
+    cursor: pointer;
+    color: $second-text-color;
+  }
+
+  .wrapcart {
+    position: relative;
+    cursor: pointer;
+
+    .iconCart {
+      margin-right: 20px;
+      color: $second-text-color;
+    }
+
+    &:hover {
+      .listCart {
+        display: block;
+      }
+    }
+
+    .listCart {
+      display: none;
+      position: relative;
+      width: 400px;
+      height: 400px;
+      background-color: $second-color;
+      position: absolute;
+      right: 0%;
+      bottom: -410px;
+      border: 1px solid $main-color;
+      border-radius: 3px;
+      animation: appear ease-in 0.2s;
+      transform-origin: calc(100% - 20px) top;
+      padding: 10px;
+      padding-top: 0;
+
+      .noCart {
+        width: 100%;
+        height: 100%;
+        background-image: url(https://bizweb.dktcdn.net/100/411/922/themes/800986/assets/empty-cart.png?1607914671664);
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+
+      &__header {
+        padding: 5px 10px;
+        color: gray;
+
+        &:hover {
+          cursor: default;
+        }
+      }
+
+      &__body {
+        overflow: auto;
+        height: 265px;
+
+        &::-webkit-scrollbar {
+          width: 0.5em;
+        }
+
+        &::-webkit-scrollbar-track {
+          box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        }
+
+        &::-webkit-scrollbar-thumb {
+          background-color: $main-color;
+          border-radius: 15px;
+        }
+
+        &__item {
+          padding: 10px;
+          margin-bottom: 10px;
+          display: flex;
+          justify-content: space-between;
+
+          &:hover {
+            background-color: $hover-color;
+            cursor: pointer;
+          }
+
+          div {
+            display: flex;
+            justify-content: flex-start;
+
+            span {
+              display: inline-block;
+              white-space: nowrap;
+              margin-left: 10px;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              width: 230px;
+
+            }
+          }
+
+          .price {
+            color: $main-color;
+            margin-right: 10px;
+          }
+
+          img {
+            width: 50px;
+            height: 50px;
+          }
+        }
+
+      }
+
+      &__footer {
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        cursor: default;
+
+        button {
+          @include button-style();
+          background-color: $main-color;
+          color: $second-text-color;
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+
+      &::after {
+        content: '';
+        width: 100%;
+        height: 15px;
+        position: absolute;
+        background-color: blue;
+        top: -15px;
+        opacity: 0
+      }
+
+      &::before {
+        content: '';
+        width: 0px;
+        height: 0px;
+        position: absolute;
+        border-left: 20px solid transparent;
+        border-right: 20px solid transparent;
+        border-top: 20px solid transparent;
+        border-bottom: 20px solid $second-color;
+        top: -27px;
+        right: 10px;
+        z-index: 100;
+      }
+    }
+  }
+
+  &>ul>li>.listDanhmuc {
+    display: none;
+  }
+
+  &>ul>li:nth-child(2) {
+    display: inline-block;
+    position: relative;
+
+    &:hover {
+      .listDanhmuc {
+
+        justify-content: center;
+        align-items: center;
+        display: block;
+        color: $main-text-color;
+        padding: 20px 10px;
+        display: flex;
+        flex-wrap: wrap;
+
+        span {
+          position: relative;
+          margin-right: 30px;
+          height: 20px;
+          margin-top: 0;
+          display: inline-block;
+
+          &::after {
+            content: '';
+            width: 0;
+            height: 2px;
+            background-color: $main-color;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -3px;
+          }
+
+          &:hover {
+            color: $main-color;
+            transition: all ease-in 0.2s;
+
+            &::after {
+              width: 100%;
+              transition: all ease-in 0.2s;
+
+            }
+
+          }
+
+        }
+      }
+    }
+
+    .listDanhmuc {
+      display: none;
+      position: relative;
+      width: 500px;
+      height: 150px;
+      background-color: $second-color;
+      position: absolute;
+      right: 0%;
+      bottom: -165px;
+      border: 1px solid $main-color;
+      border-radius: 3px;
+      animation: appear ease-in 0.2s;
+      transform-origin: calc(100% - 20px) top;
+
+      &::after {
+        content: '';
+        width: 100%;
+        height: 15px;
+        position: absolute;
+        background-color: blue;
+        top: -15px;
+        opacity: 0
+      }
+
+      &::before {
+        content: '';
+        width: 0px;
+        height: 0px;
+        position: absolute;
+        border-left: 20px solid transparent;
+        border-right: 20px solid transparent;
+        border-top: 20px solid transparent;
+        border-bottom: 20px solid $second-color;
+        top: -27px;
+        right: 10px;
+        z-index: 100;
+      }
+    }
+  }
+
+}
+
+
+
+@keyframes appear {
+  0% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+
+}
+
+//tablet
+@media (max-width:1023px) {
+  .header__right {
+    flex: 1;
+    font-size: $font-size-tablet;
+  }
+
+}
+
+//mobile
+@media (max-width:740px) {
+  .header__right {
+    .iconSearch {
+      display: block;
+    }
+
+    flex: 0;
+
+    ul {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+@mixin box-style {
+  
+}
+@mixin button-style {
+  outline: none;
+  padding: 10px;
+  border: none;
+}
+@mixin input-style {
+  outline: none;
+  border: none;
+  border-radius: 15px;
+  padding: 5px 10px;
+
+}
