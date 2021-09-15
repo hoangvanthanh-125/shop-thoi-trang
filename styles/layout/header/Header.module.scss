@@ -1,13 +1,15 @@
 @import '../../variant/varinant';
 @import '../../mixin';
-
+.headerNoAtHome{
+  background-color: $main-color !important;
+}
 .header {
-  // color:$second-color;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  width: 100vw;
+  width: 100%;
+
   padding: 20px;
   background-color: $main-color;
   background: transparent;
@@ -33,7 +35,7 @@
     .iconBar {
       display: none;
       margin-right: 20px;
-      // color: $second-text-color;
+      color: $second-text-color;
     }
   }
 
@@ -68,7 +70,6 @@
   align-items: center;
   @include input-style();
   background-color: $second-color;
-
   input {
     border: none;
     flex: 1;
@@ -106,4 +107,13 @@
   .headerColor{
     background-color: $main-color;
     transition: all ease-in 0.2s;
+  //  *{
+  //    color:$main-color;
+  //  }
+  //  .formSearch{
+  //   border: 1px solid $main-color;
+  //    input{
+     
+  //    }
+  //  }
   }

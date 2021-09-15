@@ -8,16 +8,22 @@ import ImportContactsIcon from "@material-ui/icons/ImportContacts";
 import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { listDanhmuc } from "../../fakeData";
+import {useRouter} from 'next/router'
 function SideBar() {
   const dispatch = useAppDispatch();
   const { isOpenSideBar } = useAppSelector((state) => state.uiReducer);
+  const router = useRouter();
  const [isOpenListProduct,setOpenListProduct] = useState(false);
   const handleCloseSideBar = () => {
     dispatch(uiActions.closeSideBar());
     dispatch(uiActions.closeOverlay());
   };
-  console.log(isOpenSideBar);
-
+const handleClickCategory = () => {
+ router.push('/productCategory');
+ dispatch(uiActions.closeSideBar());
+ dispatch(uiActions.closeOverlay());
+ 
+}
   return (
     <div
       className={`${style.sidebar} ${!isOpenSideBar && style.sidebar__hidden} `}
@@ -40,13 +46,13 @@ function SideBar() {
             <span>Trang chủ</span>
           </div>
         </div>
-        <div onClick={() => setOpenListProduct(!isOpenListProduct)} className={style.sidebar__body__item}>
-          <div className={style.wrapDanhmuc}>
+        <div  className={style.sidebar__body__item}>
+          <div onClick={() => handleClickCategory()} className={style.wrapDanhmuc}>
             <ShoppingBasketIcon />
-            <span>Sản phẩm</span>
+            <span >Sản phẩm</span>
           </div>
 
-          <ExpandMoreIcon className={`${style.moreIcon} ${isOpenListProduct && style.moreIconOpen}`} />
+          <ExpandMoreIcon onClick={() => setOpenListProduct(!isOpenListProduct)} className={`${style.moreIcon} ${isOpenListProduct && style.moreIconOpen}`} />
         </div>
         <div className={`${style.listProduct} ${isOpenListProduct && style.listProductApear}`}>
           {listDanhmuc.map((item, index) => {

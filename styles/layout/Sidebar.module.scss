@@ -93,7 +93,6 @@
   .listProduct{
    display: none;
   li{
-   
     margin-top: 10px;
     margin-left: 20px;
     &:hover{
@@ -105,9 +104,11 @@
   }
 }
 .listProductApear{
-  display: block;
+  justify-content: start;
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
   animation: apearListProduct ease-in 0.2s;
-  transform-origin: top right;
 }
 .sidebar__hidden{
   transform: translateX(-100%);

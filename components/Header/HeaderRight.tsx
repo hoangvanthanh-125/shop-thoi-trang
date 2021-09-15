@@ -7,19 +7,29 @@ import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 import SearchIcon from "@material-ui/icons/Search";
 import { useAppDispatch, useAppSelector } from "../../redux/hook";
 import { uiActions } from "../../redux/slice/uiSlice";
+import {useRouter} from 'next/router'
 
 function HeaderRight(props) {
   const { isOpenSearchMobile } = useAppSelector((state) => state.uiReducer);
+  const router = useRouter();
   const dispatch = useAppDispatch();
   const handleClickOpenSearch = () => {
     dispatch(uiActions.openSearchMobile());
     dispatch(uiActions.openOverlay());
   };
+  const hancleClick = (name:string) => {
+    if(name === 'Sản phẩm'){
+      router.push('/productCategory')
+    }
+    if(name === 'Trang chủ'){
+      router.push('/')
+    }
+  }
   return (
     <div className={style.header__right}>
       <ul>
         {listHeader.map((data, index) => (
-          <li key={index}>
+          <li onClick={() => hancleClick(data.name)} key={index}>
             <span> {data.name}</span>
             <div className={style.listDanhmuc}>
             {listDanhmuc.map((item,index) =><span key={index}>{item.name}</span> )}
@@ -34,7 +44,7 @@ function HeaderRight(props) {
         }`}
       />
       <div className={style.wrapcart}>
-        <ShoppingCartOutlinedIcon className={style.iconCart} />
+        <ShoppingCartOutlinedIcon onClick={() => router.push('/cart')} className={style.iconCart} />
         <div className={style.listCart}>
           {listCart.length > 0 ? (
             <div>

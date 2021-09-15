@@ -22,7 +22,8 @@
       cursor: pointer;
       position: relative;
       transition: all ease-in-out 0.5s;
-      &:first-child{
+
+      &:first-child {
         margin-left: 0;
       }
 
@@ -34,7 +35,7 @@
         height: 1px;
         background-color: $second-color;
         bottom: -5px;
-        left: 0;
+        left: 50%;
         right: 0;
         transition: all ease-in-out 0.5s;
 
@@ -44,6 +45,7 @@
         color: $second-color;
 
         &::after {
+          left: 0;
           width: 100%;
         }
       }
@@ -71,10 +73,13 @@
       color: $second-text-color;
     }
 
-    &:hover {
-      .listCart {
-        display: block;
+    @media (min-width :1024px) {
+      &:hover {
+        .listCart {
+          display: block;
+        }
       }
+
     }
 
     .listCart {
@@ -222,47 +227,51 @@
     display: inline-block;
     position: relative;
 
-    &:hover {
-      .listDanhmuc {
+    @media (min-width:1024px) {
 
-        justify-content: center;
-        align-items: center;
-        display: block;
-        color: $main-text-color;
-        padding: 20px 10px;
-        display: flex;
-        flex-wrap: wrap;
+      &:hover {
+        .listDanhmuc {
 
-        span {
-          position: relative;
-          margin-right: 30px;
-          height: 20px;
-          margin-top: 0;
-          display: inline-block;
+          justify-content: center;
+          align-items: center;
+          display: block;
+          color: $main-text-color;
+          border: 1px solid $main-color;
+          padding: 20px 10px;
+          display: flex;
+          flex-wrap: wrap;
 
-          &::after {
-            content: '';
-            width: 0;
-            height: 2px;
-            background-color: $main-color;
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: -3px;
-          }
-
-          &:hover {
-            color: $main-color;
-            transition: all ease-in 0.2s;
+          span {
+            position: relative;
+            margin-right: 30px;
+            height: 20px;
+            margin-top: 0;
+            display: inline-block;
 
             &::after {
-              width: 100%;
+              content: '';
+              width: 0;
+              height: 2px;
+              background-color: $main-color;
+              position: absolute;
+              left: 0;
+              right: 0;
+              bottom: -3px;
+            }
+
+            &:hover {
+              color: $main-color;
               transition: all ease-in 0.2s;
+
+              &::after {
+                width: 100%;
+                transition: all ease-in 0.2s;
+
+              }
 
             }
 
           }
-
         }
       }
     }
@@ -276,7 +285,7 @@
       position: absolute;
       right: 0%;
       bottom: -165px;
-      border: 1px solid $main-color;
+      // border: 1px solid $main-color;
       border-radius: 3px;
       animation: appear ease-in 0.2s;
       transform-origin: calc(100% - 20px) top;

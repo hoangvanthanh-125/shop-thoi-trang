@@ -8,8 +8,12 @@ import { listHeader } from '../../fakeData';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import HeaderRight from './HeaderRight';
-
-function Header(props) {
+interface PropsType {
+  atHome:boolean
+}
+function Header({ atHome } :PropsType) {
+  console.log('athome' + atHome);
+  
   const  {isOpenSideBar , isOpenSearchMobile} = useAppSelector(state => state.uiReducer);  
   const dispatch = useAppDispatch();
   const [colorHeader ,setColorHeader] = useState(false);
@@ -19,7 +23,7 @@ function Header(props) {
   }
   if(typeof window !== "undefined"){
     const changeColorHeader = () => {
-      if(window.scrollY > 0){
+      if(window.scrollY > 74){
         setColorHeader(true);
       }
       else setColorHeader(false);
@@ -27,7 +31,7 @@ function Header(props) {
     window.addEventListener('scroll',changeColorHeader);
   }
   return (
-    <div className={`${style.header} ${colorHeader && style.headerColor}`}>
+    <div className={`${style.header} ${colorHeader && atHome && style.headerColor } ${!atHome && style.headerNoAtHome}`}>
       <div className={style.header__left}>
         <DehazeIcon className={style.iconBar} onClick={() => handleOpenSideBar()} />
         <h3>ThanhShop</h3>

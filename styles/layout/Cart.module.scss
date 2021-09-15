@@ -1,0 +1,280 @@
+@import './../variant/varinant';
+@import './../mixin';
+
+.noCart {
+  margin-top: $height-header;
+  width: 100%;
+  min-height: $min-height-page;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  &__button {
+    @include button-style();
+    background-color: $main-color;
+    color: $second-color;
+    text-transform: uppercase;
+    padding: 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: all ease-in 0.2s;
+
+    &:hover {
+      background-color: $second-color;
+      color: $main-color;
+      border: 1px solid $main-color;
+    }
+  }
+
+  &__title {
+    text-align: center;
+  }
+}
+
+.cart {
+
+  margin-top: $height-header;
+  width: 100%;
+  min-height: $min-height-page;
+
+  position: relative;
+
+
+  &__container {
+    padding: 20px;
+   
+  }
+  &__description{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
+  }
+  
+
+}
+
+.container__listCart {
+
+  &__item {
+    padding: 30px 0;
+    height: 150px;
+    position: relative;
+    box-sizing: border-box !important;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    .item__left {
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+
+      &__checkbox {
+        color: $main-color !important;
+      }
+
+      &__img {
+        width: 50px;
+        height: 50px;
+        margin-right: 10px;
+        margin-left: 10px;
+      }
+
+      &__info {
+        // display: flex;
+        // align-items: flex-start;
+        // justify-content: flex-start;
+        margin: 0;
+
+        flex-direction: column;
+
+        .name {
+          width: 130px; // chiều rộng bằng khối bao nó
+          white-space: pre-wrap;
+          overflow: hidden; // ẩn các nội dung khi kích thước lớn hơn chiều rộng khối bên ngoài
+          text-overflow: ellipsis; //thêm 3 dấu chấm ở cuối
+          -webkit-line-clamp: 3; // số dòng muốn hiển thị
+          -webkit-box-orient: vertical;
+          display: -webkit-box;
+
+          @media (max-width:740px) {
+            width: 100px;
+          }
+        }
+
+        .priceMobile {
+          display: none;
+
+          @media (max-width:740px) {
+            display: block;
+          }
+        }
+
+      }
+    }
+
+    .item__price {
+      flex-direction: column;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+
+      .title {
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      @media (max-width:740px) {
+        display: none;
+      }
+    }
+
+    .item__action {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+
+      button {
+        @include button-style();
+        padding: 6px;
+        color: $second-color;
+        background-color: $main-color;
+        width: 30px;
+        cursor: pointer;
+        margin: 0 3px;
+      }
+
+      .title {
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+    }
+
+    .item__total {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transform: translateX(-50%);
+
+      .title {
+        font-weight: bold;
+      }
+    }
+
+    .iconDelete {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      cursor: pointer;
+      color: gray;
+      transition: all ease-in 0.2s;
+
+      &:hover {
+        color: $main-color;
+      }
+    }
+  }
+
+  input {
+    color: $main-color !important;
+    background-color: blueviolet;
+    border: 2px solid $main-color;
+    cursor: pointer;
+    margin-top: 18px;
+  }
+}
+
+.container__payment {
+  @media(max-width:740px){
+    display: none;
+  }
+
+  position: relative;
+}
+
+.payment {
+  margin-top: 20px;
+  position: sticky;
+  top: 94px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 20px;
+
+  &__title {
+    width: 100%;
+    font-weight: bold;
+    color: $second-color;
+    padding: 10px;
+    background-color: $main-color;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  &__price {
+    height: 100px;
+    text-align: center;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold
+  }
+
+  &__action {
+    @include button-style();
+    background-color: $main-color;
+    font-weight: bold;
+    color: $second-color;
+    cursor: pointer;
+    transition: all ease-in 0.2s;
+
+    &:hover {
+      border: 1px solid $main-color;
+      background-color: $second-color;
+      color: $main-color;
+    }
+  }
+  
+}
+.payment__mobile{
+  transform: translateY(100%);
+  font-weight: bold;
+  width: 100%;
+  height: 70px;
+  position: fixed;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  @media(max-width:740px){
+    transform: translateY(0);
+    box-shadow: 3px 3px 4px black;
+  }
+  
+  &__left{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    background: $second-color;
+    background-clip: border-box;
+  }
+  &__right{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-basis:35% ;
+    height: 100%;
+    background-color: $main-color;
+    color: $second-color;
+  }
+}
