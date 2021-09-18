@@ -15,76 +15,93 @@ export const listHeader = [
 
 export const listCart = [
   {
+   cartItem:{
     id:'1',
     name:'Áo khoác áo áo áo áo áo áo áo asoa áo áo áo áo áo áo áo áo áo áo áo hi',
     price:10000,
-    urlImg:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdBxNi9QbFhn7stRf1PYj-viQEs7yiRmBr8phBdpaFzsLyf0rf1naFRrs0TfWhhAeoGK6TFI0oQIE&usqp=CAc'
-
-  },
-  {
-    id:'2',
-    name:'Áo khoác Bormer',
-    price:10000,
-    urlImg:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdBxNi9QbFhn7stRf1PYj-viQEs7yiRmBr8phBdpaFzsLyf0rf1naFRrs0TfWhhAeoGK6TFI0oQIE&usqp=CAc'
-
-  },
-  {
-    id:'3',
-    name:'Áo khoác Bormer',
-    price:10000,
-    urlImg:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdBxNi9QbFhn7stRf1PYj-viQEs7yiRmBr8phBdpaFzsLyf0rf1naFRrs0TfWhhAeoGK6TFI0oQIE&usqp=CAc'
-
-  },
-  {
-    id:'4',
-    name:'Áo khoác Bormer',
-    price:10000,
-    urlImg:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdBxNi9QbFhn7stRf1PYj-viQEs7yiRmBr8phBdpaFzsLyf0rf1naFRrs0TfWhhAeoGK6TFI0oQIE&usqp=CAc'
-
-  },
-  {
-    id:'5',
-    name:'Áo khoác Bormer',
-    price:10000,
-    urlImg:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdBxNi9QbFhn7stRf1PYj-viQEs7yiRmBr8phBdpaFzsLyf0rf1naFRrs0TfWhhAeoGK6TFI0oQIE&usqp=CAc'
-
-  },
-  {
-    id:'6',
-    name:'Áo khoác Bormer',
-    price:10000,
-    urlImg:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdBxNi9QbFhn7stRf1PYj-viQEs7yiRmBr8phBdpaFzsLyf0rf1naFRrs0TfWhhAeoGK6TFI0oQIE&usqp=CAc'
-
-  },
-  {
-    id:'7',
-    name:'Áo khoác Bormer',
-    price:10000,
-    urlImg:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdBxNi9QbFhn7stRf1PYj-viQEs7yiRmBr8phBdpaFzsLyf0rf1naFRrs0TfWhhAeoGK6TFI0oQIE&usqp=CAc'
-
-  },
-  {
-    id:'8',
-    name:'Áo khoác Bormer',
-    price:10000,
-    urlImg:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdBxNi9QbFhn7stRf1PYj-viQEs7yiRmBr8phBdpaFzsLyf0rf1naFRrs0TfWhhAeoGK6TFI0oQIE&usqp=CAc'
-
-  },
-  {
-    id:'9',
-    name:'Áo khoác Bormer',
-    price:10000,
-    urlImg:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdBxNi9QbFhn7stRf1PYj-viQEs7yiRmBr8phBdpaFzsLyf0rf1naFRrs0TfWhhAeoGK6TFI0oQIE&usqp=CAc'
-
-  },
-  {
-    id:'10',
-    name:'Áo khoác Bormer',
-    price:10000,
     urlImg:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdBxNi9QbFhn7stRf1PYj-viQEs7yiRmBr8phBdpaFzsLyf0rf1naFRrs0TfWhhAeoGK6TFI0oQIE&usqp=CAc',
-    size:10
+   },
+    quantity:1,
+    id:'1'
 
   },
+  {
+    cartItem:{
+     id:'2',
+     name:'Áo khoác áo áo áo áo áo áo áo asoa áo áo áo áo áo áo áo áo áo áo áo hi',
+     price:10000,
+     urlImg:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdBxNi9QbFhn7stRf1PYj-viQEs7yiRmBr8phBdpaFzsLyf0rf1naFRrs0TfWhhAeoGK6TFI0oQIE&usqp=CAc',
+    },
+     quantity:1,
+     id:'2'
+ 
+   },
+   {
+    cartItem:{
+     id:'3',
+     name:'Áo khoác áo áo áo áo áo áo áo asoa áo áo áo áo áo áo áo áo áo áo áo hi',
+     price:10000,
+     urlImg:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdBxNi9QbFhn7stRf1PYj-viQEs7yiRmBr8phBdpaFzsLyf0rf1naFRrs0TfWhhAeoGK6TFI0oQIE&usqp=CAc',
+    },
+     quantity:1,
+     id:'3'
+ 
+   },
+   {
+    cartItem:{
+     id:'4',
+     name:'Áo khoác áo áo áo áo áo áo áo asoa áo áo áo áo áo áo áo áo áo áo áo hi',
+     price:10000,
+     urlImg:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdBxNi9QbFhn7stRf1PYj-viQEs7yiRmBr8phBdpaFzsLyf0rf1naFRrs0TfWhhAeoGK6TFI0oQIE&usqp=CAc',
+    },
+     quantity:1,
+     id:'4'
+ 
+   },
+   {
+    cartItem:{
+     id:'5',
+     name:'Áo khoác áo áo áo áo áo áo áo asoa áo áo áo áo áo áo áo áo áo áo áo hi',
+     price:10000,
+     urlImg:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdBxNi9QbFhn7stRf1PYj-viQEs7yiRmBr8phBdpaFzsLyf0rf1naFRrs0TfWhhAeoGK6TFI0oQIE&usqp=CAc',
+    },
+     quantity:1,
+     id:'5'
+ 
+   },
+   {
+    cartItem:{
+     id:'6',
+     name:'Áo khoác áo áo áo áo áo áo áo asoa áo áo áo áo áo áo áo áo áo áo áo hi',
+     price:10000,
+     urlImg:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdBxNi9QbFhn7stRf1PYj-viQEs7yiRmBr8phBdpaFzsLyf0rf1naFRrs0TfWhhAeoGK6TFI0oQIE&usqp=CAc',
+    },
+     quantity:1,
+     id:'6'
+ 
+   },
+   {
+    cartItem:{
+     id:'7',
+     name:'Áo khoác áo áo áo áo áo áo áo asoa áo áo áo áo áo áo áo áo áo áo áo hi',
+     price:10000,
+     urlImg:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdBxNi9QbFhn7stRf1PYj-viQEs7yiRmBr8phBdpaFzsLyf0rf1naFRrs0TfWhhAeoGK6TFI0oQIE&usqp=CAc',
+    },
+     quantity:1,
+     id:'7'
+ 
+   },
+   {
+    cartItem:{
+     id:'8',
+     name:'Áo khoác áo áo áo áo áo áo áo asoa áo áo áo áo áo áo áo áo áo áo áo hi',
+     price:10000,
+     urlImg:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdBxNi9QbFhn7stRf1PYj-viQEs7yiRmBr8phBdpaFzsLyf0rf1naFRrs0TfWhhAeoGK6TFI0oQIE&usqp=CAc',
+    },
+     quantity:1,
+     id:'8'
+ 
+   },
   
 ]
 export const listDanhmuc = [

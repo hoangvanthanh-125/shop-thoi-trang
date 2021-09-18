@@ -1,7 +1,7 @@
 @import '../../variant/varinant';
 @import '../../mixin';
 .headerNoAtHome{
-  background-color: $main-color !important;
+  background: $main-color !important;
 }
 .header {
   position: fixed;
@@ -11,7 +11,6 @@
   width: 100%;
 
   padding: 20px;
-  background-color: $main-color;
   background: transparent;
   z-index: 5;
   display: flex;
@@ -52,7 +51,7 @@
     right: 0;
     left: 0;
     z-index: 11;
-    background-color:$main-color;
+    background:$main-color;
     transition: all ease-in 0.2s ;
     padding: 20px;
   }
@@ -69,7 +68,7 @@
   justify-content: space-between;
   align-items: center;
   @include input-style();
-  background-color: $second-color;
+  background: $second-color;
   input {
     border: none;
     flex: 1;
@@ -105,7 +104,7 @@
   }
   }
   .headerColor{
-    background-color: $main-color;
+    background: $main-color;
     transition: all ease-in 0.2s;
   //  *{
   //    color:$main-color;

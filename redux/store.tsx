@@ -1,12 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit'
 import {combineReducers} from '@reduxjs/toolkit'
 import { uiReducer } from './slice/uiSlice'
-import { createWrapper } from 'next-redux-wrapper'
+import { createWrapper } from 'next-redux-wrapper';
+import {cartReducer} from './slice/cartSlice'
 
 
 const store = configureStore({
     reducer:{
       uiReducer,
+      cartReducer
     },
     devTools: true,
 })

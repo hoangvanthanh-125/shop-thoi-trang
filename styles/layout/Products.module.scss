@@ -1,0 +1,8 @@
+@import './../variant//varinant';
+.wrap{
+  margin-top: $height-header;
+  padding: 20px;
+  @media (max-width:740px){
+    padding-top: 0;
+  }
+}

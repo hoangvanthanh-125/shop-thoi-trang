@@ -7,24 +7,26 @@ import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 import SearchIcon from "@material-ui/icons/Search";
 import { useAppDispatch, useAppSelector } from "../../redux/hook";
 import { uiActions } from "../../redux/slice/uiSlice";
-import {useRouter} from 'next/router'
+import { useRouter } from "next/router";
+import Badge from "@material-ui/core/Badge";
 
 function HeaderRight(props) {
   const { isOpenSearchMobile } = useAppSelector((state) => state.uiReducer);
   const router = useRouter();
   const dispatch = useAppDispatch();
+  const { listCart } = useAppSelector(state => state.cartReducer)
   const handleClickOpenSearch = () => {
     dispatch(uiActions.openSearchMobile());
     dispatch(uiActions.openOverlay());
   };
-  const hancleClick = (name:string) => {
-    if(name === 'Sản phẩm'){
-      router.push('/productCategory')
+  const hancleClick = (name: string) => {
+    if (name === "Sản phẩm") {
+      router.push("/products");
     }
-    if(name === 'Trang chủ'){
-      router.push('/')
+    if (name === "Trang chủ") {
+      router.push("/");
     }
-  }
+  };
   return (
     <div className={style.header__right}>
       <ul>
@@ -32,7 +34,9 @@ function HeaderRight(props) {
           <li onClick={() => hancleClick(data.name)} key={index}>
             <span> {data.name}</span>
             <div className={style.listDanhmuc}>
-            {listDanhmuc.map((item,index) =><span key={index}>{item.name}</span> )}
+              {listDanhmuc.map((item, index) => (
+                <span key={index}>{item.name}</span>
+              ))}
             </div>
           </li>
         ))}
@@ -44,7 +48,13 @@ function HeaderRight(props) {
         }`}
       />
       <div className={style.wrapcart}>
-        <ShoppingCartOutlinedIcon onClick={() => router.push('/cart')} className={style.iconCart} />
+        <Badge badgeContent={listCart?.length} color="primary">
+          <ShoppingCartOutlinedIcon
+            onClick={() => router.push("/cart")}
+            className={style.iconCart}
+          />{" "}
+        </Badge>
+
         <div className={style.listCart}>
           {listCart.length > 0 ? (
             <div>
@@ -55,10 +65,10 @@ function HeaderRight(props) {
                 {listCart.map((item, index) => (
                   <div className={style.listCart__body__item} key={index}>
                     <div>
-                      <img src={item.urlImg} alt="" />
-                      <span>{item.name}</span>
+                      <img src={item?.cartItem.urlImg} alt="" />
+                      <span>{item?.cartItem?.name}</span>
                     </div>
-                    <span className={style.price}>{item.price}</span>
+                    <span className={style.price}>{item?.cartItem.price}</span>
                   </div>
                 ))}
               </div>

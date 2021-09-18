@@ -13,7 +13,12 @@ import { useRouter } from "next/router";
 import { wrapper } from "../redux/store";
 import app, { AppContext } from "next/app";
 import LayOut from "../components/layout";
+import { useAppDispatch, useAppSelector } from "../redux/hook";
+import { useEffect } from "react";
+import { cartActions } from "../redux/slice/cartSlice";
+import { listCart } from "../fakeData";
 function MyApp({ Component, pageProps }) {
+  const dispatch = useAppDispatch();
   const theme = createTheme({
     breakpoints: {
       values: {
@@ -28,6 +33,14 @@ function MyApp({ Component, pageProps }) {
   const router = useRouter();
   console.log(router.asPath);
   const atHome = router.asPath === "/";
+  useEffect(() => {
+    try {
+      //all Api gio hang
+      dispatch(cartActions.fetchAllCart(listCart));
+    } catch (err) {
+      alert(err.message);
+    }
+  }, []);
   return (
     <>
       <ThemeProvider theme={theme}>

@@ -1,5 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
+import Badge from '@material-ui/core/Badge';
+import MailIcon from '@material-ui/icons/Mail';
 import styles from "../styles/Home.module.scss";
 import { Button, Card, Grid, TextField } from "@material-ui/core";
 import SideBar from "./../components/Sidebar";
@@ -25,6 +27,7 @@ export default function Home() {
       </Head>
       <Carousel />
     <ProductCategory />
+    
     </div>
   );
 }

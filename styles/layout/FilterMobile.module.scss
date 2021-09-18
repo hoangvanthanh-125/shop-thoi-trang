@@ -1,0 +1,36 @@
+@import './../variant/varinant';
+
+.wrap {
+  padding: 0 10px;
+  position: fixed;
+  height: 100000px;
+  width: 300px;
+  // height: 120px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 100000;
+  color: black;
+  background-color: white;
+  overflow: auto;
+  transform: translateX(0%);
+
+  &__headfilter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    padding-bottom: 0;
+  }
+
+  transition: all ease-in 0.2s;
+
+}
+
+.filterApear {
+  transform: translateX(-100%);
+  animation: appear ease-in 0.2s;
+  transition: all ease-in 0.2s;
+
+}

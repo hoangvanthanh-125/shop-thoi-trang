@@ -12,7 +12,7 @@
 
   &__button {
     @include button-style();
-    background-color: $main-color;
+   background: $main-color;
     color: $second-color;
     text-transform: uppercase;
     padding: 20px;
@@ -21,7 +21,7 @@
     transition: all ease-in 0.2s;
 
     &:hover {
-      background-color: $second-color;
+     background: $second-color;
       color: $main-color;
       border: 1px solid $main-color;
     }
@@ -142,7 +142,7 @@
         @include button-style();
         padding: 6px;
         color: $second-color;
-        background-color: $main-color;
+       background: $main-color;
         width: 30px;
         cursor: pointer;
         margin: 0 3px;
@@ -184,7 +184,7 @@
 
   input {
     color: $main-color !important;
-    background-color: blueviolet;
+   background: blueviolet;
     border: 2px solid $main-color;
     cursor: pointer;
     margin-top: 18px;
@@ -213,7 +213,7 @@
     font-weight: bold;
     color: $second-color;
     padding: 10px;
-    background-color: $main-color;
+   background: $main-color;
     text-align: center;
     text-transform: uppercase;
   }
@@ -230,16 +230,17 @@
 
   &__action {
     @include button-style();
-    background-color: $main-color;
+   background: $main-color;
     font-weight: bold;
     color: $second-color;
     cursor: pointer;
     transition: all ease-in 0.2s;
 
     &:hover {
-      border: 1px solid $main-color;
-      background-color: $second-color;
-      color: $main-color;
+      // border: 1px solid $main-color;
+      // background: $second-color;
+      // color: $main-color;
+      opacity: 0.8;
     }
   }
   
@@ -274,7 +275,7 @@
     align-items: center;
     flex-basis:35% ;
     height: 100%;
-    background-color: $main-color;
+   background: $main-color;
     color: $second-color;
   }
 }

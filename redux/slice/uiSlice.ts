@@ -4,12 +4,14 @@ import { HYDRATE } from "next-redux-wrapper";
 interface State {
   isOpenSideBar: boolean;
   isOpenSearchMobile: boolean;
-  isOpenOverLay:boolean
+  isOpenOverLay:boolean;
+  isOpenFilterMobile:boolean
 }
 const initialState = {
   isOpenSideBar: false,
   isOpenSearchMobile: false,
-  isOpenOverLay:false
+  isOpenOverLay:false,
+  isOpenFilterMobile:false
 } as State;
 
 const uiSlice = createSlice({
@@ -33,6 +35,12 @@ const uiSlice = createSlice({
     },
     closeOverlay: (state) => {
       state.isOpenOverLay = false;
+    },
+    openFilterMobile: (state) => {
+      state.isOpenFilterMobile = true;
+    },
+    closeFilterMobile: (state) => {
+      state.isOpenFilterMobile = false;
     },
   },
 
