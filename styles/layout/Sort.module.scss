@@ -1,0 +1,14 @@
+.select{
+  outline: none;
+  border-radius: 5px;
+  width: 100px;
+  height: 30px;
+  padding: 0 10px;
+  cursor: pointer;
+  border: 1px solid rgb(0, 0, 0,0.2);
+  transition: all ease-in 0.2s;
+  &:hover{
+    border: 1px solid rgb(0, 0, 0,0.6);
+  }
+  
+}

@@ -29,3 +29,8 @@
     opacity: 0;
   }
 }
+@media (min-width:741px){
+  .overlay{
+    display: none;
+  }
+}

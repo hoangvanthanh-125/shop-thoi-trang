@@ -1,8 +1,6 @@
 @import './../variant//varinant';
 @import './../mixin';
 .wrapFilter {
-  
-
   &__head {
     cursor: pointer;
     display: flex;
@@ -94,7 +92,7 @@
         }
       }
     }
-    @media (max-width:740px){
+    @media (max-width:1023px){
       flex-direction: column;
       
     }

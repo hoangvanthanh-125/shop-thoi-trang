@@ -79,11 +79,12 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+        text-transform: uppercase;
         padding: 10px;
         background: transparent;
         outline: none;
-        border: 1px solid $second-color;
-        color: $second-color;
+        border: 1px solid rgb(255, 255, 255,0.4);
+        color:rgb(255, 255, 255,0.8);
         border-radius: 5px;
         // text-transform: uppercase;
 

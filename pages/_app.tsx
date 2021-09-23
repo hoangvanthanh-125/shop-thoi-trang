@@ -23,7 +23,7 @@ function MyApp({ Component, pageProps }) {
     breakpoints: {
       values: {
         xs: 0,
-        sm: 740,
+        sm: 741,
         md: 1024,
         lg: 1280,
         xl: 1920,

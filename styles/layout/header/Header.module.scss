@@ -2,8 +2,10 @@
 @import '../../mixin';
 .headerNoAtHome{
   background: $main-color !important;
+  width: 100% ;
 }
 .header {
+  height: $height-header;
   position: fixed;
   top: 0;
   left: 0;

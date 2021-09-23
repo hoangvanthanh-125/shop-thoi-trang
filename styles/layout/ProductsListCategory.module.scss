@@ -6,26 +6,38 @@
   &__head{
     border-bottom:1px solid $main-color ;
     padding: 10px;
-    text-align: center;
+    text-align: start;
     color: $second-color;
     background-color: $main-color;
     border: 1px solid $main-color;
     background-clip: border-box;
-
     font-weight: bold;
   }
   &__body{
    
     &__item{
-      display: block;
+      display: flex;
       padding: 10px;
       border-bottom: 1px solid $hover-color;
+      justify-content: flex-start;
+      align-items: center;
       &:hover{
         background-color: $hover-color;
       }
     }
     
   }
+}
+.active{
+  font-weight: bold;
+}
+.icon{
+  display: none !important;
+  
+}
+.iconActive{
+  display: block !important;
+  padding: 0 !important;
 }
 @media (max-width:740px){
   .listCategory{

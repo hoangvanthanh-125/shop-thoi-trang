@@ -21,10 +21,15 @@ li {
  
 }
  @media (max-width:740px){
-  p,span,li,button{
+  p,li,button{
     font-size: 13px !important;
   }
   }
+  @media (max-width:1024px){
+    p,li,button,div{
+      font-size: 14px !important;
+    }
+    }
 html {
   font-family: 'Roboto', sans-serif;
 }

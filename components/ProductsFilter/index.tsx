@@ -4,9 +4,10 @@ import FilterListIcon from "@material-ui/icons/FilterList";
 import FilterBody from "./FilterBody";
 import { useAppDispatch } from "../../redux/hook";
 import { uiActions } from "../../redux/slice/uiSlice";
-
-function ProductsFilter(props) {
-  const [openFilter, setOpenFilter] = useState(false);
+interface PropsType {
+  handleSetOpenFilter: () => void;
+}
+function ProductsFilter({ handleSetOpenFilter }: PropsType) {
   const dispatch = useAppDispatch();
   const handleClickOpenFilterMobile = () => {
     dispatch(uiActions.openFilterMobile());
@@ -16,7 +17,7 @@ function ProductsFilter(props) {
   return (
     <div className={style.wrapFilter}>
       <div
-        onClick={() => setOpenFilter(!openFilter)}
+        onClick={() => handleSetOpenFilter()}
         className={style.wrapFilter__head}
       >
         <FilterListIcon />
@@ -28,9 +29,6 @@ function ProductsFilter(props) {
       >
         <FilterListIcon />
         <p className={style.wrapFilter__head__title}>Lọc sản phẩm</p>
-      </div>
-      <div className={style.wrapbody}>
-        <FilterBody openFilter={openFilter} />
       </div>
     </div>
   );
