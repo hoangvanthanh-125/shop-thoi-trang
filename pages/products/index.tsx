@@ -10,8 +10,9 @@ import { Product } from "../../types";
 import style from "./../../styles/layout/Products.module.scss";
 import { useRouter } from "next/router";
 import Head from "next/head";
+import Collapse from "@material-ui/core/Collapse";
+
 import FilterBody from "../../components/ProductsFilter/FilterBody";
-import { set } from "react-hook-form";
 import textStyle from "./../../styles/layout/TextEffect.module.scss";
 function ProductsPage({
   listProduct,
@@ -47,7 +48,10 @@ function ProductsPage({
         >
           <Grid item sm={12} md={12} xs={12}>
             <div className={style.intro}>
-              <h5 className={textStyle.h1} data-text= {currentListTypeProduct[0]?.name}>
+              <h5
+                className={textStyle.h1}
+                data-text={currentListTypeProduct[0]?.name}
+              >
                 <span className={textStyle.span}>
                   {currentListTypeProduct[0]?.name}
                 </span>
@@ -68,7 +72,15 @@ function ProductsPage({
                 </div>
               </div>
               <div className={style.filterBody} style={{ padding: 10 }}>
-                <FilterBody openFilter={openFilter} />
+                <Collapse
+                  className={style.content}
+                  in={openFilter}
+                  timeout={500}
+                >
+                  <div className={style.content} style={{ transition: "3s" }}>
+                    <FilterBody  />
+                  </div>
+                </Collapse>
               </div>
             </Grid>
             <Grid className={style.wrapListProduct} item container>

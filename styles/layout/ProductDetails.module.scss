@@ -1,0 +1,24 @@
+.wrapDetailProduct{
+  button:nth-child(3){
+    right: 25px !important;
+  }
+   button:nth-child(1){
+   
+    left : 25px !important;
+    z-index: 100 !important;
+  }
+}
+  
+
+.lol{
+color: red;
+// width: 500px;
+width: 100% !important;
+height: 200px;
+background: blue;
+display: flex;
+justify-content: center;
+align-items: center;
+text-align:center;
+}
+

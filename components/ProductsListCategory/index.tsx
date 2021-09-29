@@ -6,7 +6,10 @@ import {useRouter} from 'next/router';
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 function ProductListCategory(props) {
   const router = useRouter();
-  const { type } = router.query;
+  let { type } = router.query;
+  if(!type){
+    type='all';
+  }
   
   return (
     <div className={style.listCategory}>

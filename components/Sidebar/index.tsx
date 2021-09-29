@@ -8,22 +8,21 @@ import ImportContactsIcon from "@material-ui/icons/ImportContacts";
 import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { listDanhmuc } from "../../fakeData";
-import {useRouter} from 'next/router'
+import { useRouter } from "next/router";
+import Link from "next/link";
 function SideBar() {
   const dispatch = useAppDispatch();
   const { isOpenSideBar } = useAppSelector((state) => state.uiReducer);
   const router = useRouter();
- const [isOpenListProduct,setOpenListProduct] = useState(false);
+  const { asPath } = router;
+  const [isOpenListProduct, setOpenListProduct] = useState(false);
+  const atProductType = asPath.indexOf("type") >= 0;
+
   const handleCloseSideBar = () => {
     dispatch(uiActions.closeSideBar());
     dispatch(uiActions.closeOverlay());
   };
-const handleClickCategory = () => {
- router.push('/productCategory');
- dispatch(uiActions.closeSideBar());
- dispatch(uiActions.closeOverlay());
- 
-}
+
   return (
     <div
       className={`${style.sidebar} ${!isOpenSideBar && style.sidebar__hidden} `}
@@ -38,28 +37,72 @@ const handleClickCategory = () => {
         />
       </div>
       <div className={style.sidebar__body}>
+        <Link href="/" passHref>
+          <div
+            onClick={() => handleCloseSideBar()}
+            className={`${style.sidebar__body__item} ${
+              asPath === "/" && style.sidebar__body__itemActive
+            }`}
+          >
+            <div className={style.wrapDanhmuc}>
+              <HomeIcon />
+              <span>Trang chủ</span>
+            </div>
+          </div>
+        </Link>
         <div
-          className={`${style.sidebar__body__item} ${style.sidebar__body__itemActive}`}
+          className={`${style.sidebar__body__item} ${
+            asPath === "/products" && style.sidebar__body__itemActive
+          }`}
         >
-          <div className={style.wrapDanhmuc}>
-            <HomeIcon />
-            <span>Trang chủ</span>
-          </div>
-        </div>
-        <div  className={style.sidebar__body__item}>
-          <div onClick={() => handleClickCategory()} className={style.wrapDanhmuc}>
-            <ShoppingBasketIcon />
-            <span >Sản phẩm</span>
-          </div>
+          <Link href="/products" passHref>
+            <div
+              onClick={() => handleCloseSideBar()}
+              className={style.wrapDanhmucSP}
+            >
+              <ShoppingBasketIcon />
+              <span>Sản phẩm</span>
+            </div>
+          </Link>
 
-          <ExpandMoreIcon onClick={() => setOpenListProduct(!isOpenListProduct)} className={`${style.moreIcon} ${isOpenListProduct && style.moreIconOpen}`} />
+          <div
+            onClick={() => setOpenListProduct(!isOpenListProduct)}
+            className={style.wrapMoreIcon}
+          >
+            <ExpandMoreIcon
+              className={`${style.moreIcon} ${
+                (atProductType || isOpenListProduct) && style.moreIconOpen
+              }`}
+            />
+          </div>
         </div>
-        <div className={`${style.listProduct} ${isOpenListProduct && style.listProductApear}`}>
+        <div
+          className={`${style.listProduct} ${
+            (atProductType || isOpenListProduct) && style.listProductApear
+          }`}
+        >
           {listDanhmuc.map((item, index) => {
-            return <li key={index}>{item.name}</li>;
+            return (
+              <Link key={index} href={`/products?type=${item.path}`} passHref>
+                <li
+                  onClick={() => handleCloseSideBar()}
+                  style={{
+                    fontWeight:
+                      asPath === `/products?type=${item.path}`
+                        ? "bold"
+                        : "normal",
+                  }}
+                >
+                  {item.name}
+                </li>
+              </Link>
+            );
           })}
         </div>
-        <div className={style.sidebar__body__item}>
+        <div
+          onClick={() => handleCloseSideBar()}
+          className={style.sidebar__body__item}
+        >
           <div className={style.wrapDanhmuc}>
             <ImportContactsIcon />
             <span>Giới thiệu</span>

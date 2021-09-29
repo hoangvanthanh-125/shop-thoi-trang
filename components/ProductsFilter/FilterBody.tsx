@@ -48,7 +48,7 @@ function FilterBody( {openFilter } : PropsType) {
     <div
           className={`${
             !openFilter && style.wrapFilter__bodyHidden
-          }`}
+          } ${style.containerWrapFilter}`}
         >
           <div className={`${style.wrapFilter__body} `}>
           <div className={style.wrapFilter__body__item}>

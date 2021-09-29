@@ -8,6 +8,8 @@ import { useAppSelector } from '../../redux/hook';
 import HeaderSearch from '../Header/HeaderSearch';
 import styleLayout from './../../styles/layout/index.module.scss'
 import FilterMobile from '../FilterMobile';
+import ScrollTop from '../ScrollTop';
+
 function LayOut({children,atHome}) {
   const { isOpenSearchMobile } = useAppSelector(state => state.uiReducer)
   return (
@@ -18,6 +20,7 @@ function LayOut({children,atHome}) {
       <SideBar />
       <Overlay />
       <FilterMobile />
+      <ScrollTop />
       <div
         className={`${style.header__searchMobile} ${
           !isOpenSearchMobile && style.header__searchMobileAppear

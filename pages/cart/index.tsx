@@ -87,7 +87,7 @@ function Cart({}) {
     <div className={style.cart}>
       <h2 className={style.cart__description}>Giỏ hàng của bạn</h2>
       <Grid container spacing={3} className={style.cart__container}>
-        <Grid className={style.container__listCart} item md={8} sm={8} xs={12}>
+        <Grid className={style.container__listCart} item md={9} sm={8} xs={12}>
           <div>
             {listCart.map((item) => (
               <Card key={item.id} className={style.container__listCart__item}>
@@ -134,7 +134,7 @@ function Cart({}) {
             ))}
           </div>
         </Grid>
-        <Grid className={style.container__payment} item md={4} sm={4} xs={12}>
+        <Grid className={style.container__payment} item md={3} sm={4} xs={12}>
           <Card className={style.payment}>
             <p className={style.payment__title}>Tổng tiền</p>
             <p className={style.payment__price}>{totalMoney}</p>

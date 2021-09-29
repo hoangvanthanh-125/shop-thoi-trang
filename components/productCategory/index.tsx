@@ -1,17 +1,10 @@
 import {
-  FormControlLabel,
-  FormLabel,
-  Grid,
-  makeStyles,
-  Paper,
-  Radio,
-  RadioGroup,
+  Grid
 } from "@material-ui/core";
 import React from "react";
 import { listDanhmuc } from "../../fakeData";
 import style from "./../../styles/layout/ProductCategory.module.scss";
-import Head from "next/head";
-import Card from "@material-ui/core/Card";
+import Link from 'next/link';
 
 function ProductCategory() {
   return (
@@ -27,9 +20,10 @@ function ProductCategory() {
         className={style.wrapProductCategory__container}
       >
         {listDanhmuc.map((item, index) => (
+         <Link key={index} href  = {`/products/?type=${item.path}`} passHref>
           <Grid
             className={style.wrapProductCategory__container__item}
-            key={index}
+            
             item
             xs={6}
             md={4}
@@ -44,6 +38,7 @@ function ProductCategory() {
             </div>
             <button>{item.name}</button>
           </Grid>
+         </Link>
         ))}
       </Grid>
     </div>

@@ -1,15 +1,19 @@
+@import './../_mixin.scss';
 .productItem {
+  @include box-style ;
   margin-left: 10px;
   margin-bottom: 10px;
   padding-bottom: 15px;
   cursor: pointer;
   transition: transform ease-in .2s;
   transform: scale(1);
+ @media (min-width : 1024px){
   &:hover{
     transform: scale(1.05);
     transition: all ease-in .2s;
 
   }
+ }
 }
 
 .img {
@@ -38,4 +42,8 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  &__sale{
+    color: gray;
+    text-decoration: line-through;
+  }
 }

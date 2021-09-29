@@ -1,0 +1,28 @@
+@import './../variant//varinant';
+.scroll{
+  cursor: pointer;
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  color: $second-color;
+  border-radius: 50px;
+  background: $main-color;
+  right: 20px;
+  bottom: 75px;
+  z-index: 400;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 3px 3px 3px gray;
+  opacity: 1;
+  transition: all ease-in 0.2s;
+}
+.icon{
+  transform: rotate(-90deg);
+}
+.scrollHidden{
+  transform: translateY(60px);
+  opacity: 0;
+  transition: all ease-in 0.2s;
+
+}

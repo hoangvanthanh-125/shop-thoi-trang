@@ -11,9 +11,7 @@ import HeaderRight from './HeaderRight';
 interface PropsType {
   atHome:boolean
 }
-function Header({ atHome } :PropsType) {
-  console.log('athome' + atHome);
-  
+function Header({ atHome } :PropsType) {  
   const  {isOpenSideBar , isOpenSearchMobile} = useAppSelector(state => state.uiReducer);  
   const dispatch = useAppDispatch();
   const [colorHeader ,setColorHeader] = useState(false);

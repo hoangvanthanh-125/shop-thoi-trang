@@ -3,13 +3,15 @@ import style from "./../../styles/layout/ProductItem.module.scss";
 import React from "react";
 import Rating from "@material-ui/lab/Rating";
 import { Product } from "../../types";
+import Link from 'next/link'
 type PropsType = {
   product: Product;
 };
 
 function ProductItem({ product }: PropsType) {
-  const { name, price, star, sale, listImg } = product;
+  const { name, price, star, sale, listImg,id} = product;
   return (
+  <Link href={`/products/${id}/${name}`}>
     <Card className={style.productItem}>
       <img className={style.img} src={listImg[0]} alt="loading" />
       <div className={style.rating}>
@@ -18,10 +20,9 @@ function ProductItem({ product }: PropsType) {
       <p className={style.nameProduct}>{name}</p>
       <div className={style.price}>
         <p className={style.price__real}>{price}đ</p>
-        <p className={style.price__sale}>{price}đ</p>
-
+        {sale > 0 && <p className={style.price__sale}>{price}đ</p>}
       </div>
-    </Card>
+    </Card></Link>
   );
 }
 

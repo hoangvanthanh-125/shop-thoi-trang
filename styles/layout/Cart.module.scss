@@ -84,9 +84,7 @@
       }
 
       &__info {
-        // display: flex;
-        // align-items: flex-start;
-        // justify-content: flex-start;
+      
         margin: 0;
 
         flex-direction: column;
@@ -157,7 +155,7 @@
     .item__total {
       position: absolute;
       bottom: 10px;
-      left: 50%;
+      left: 59%;
       display: flex;
       justify-content: center;
       align-items: center;

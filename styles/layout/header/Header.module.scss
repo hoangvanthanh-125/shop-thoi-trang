@@ -44,7 +44,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    flex: 0.6;
+    flex: 0.5;
+    @media (min-width:1024px){
+      padding-left: 30px;
+    }
     
   }
   &__searchMobile{

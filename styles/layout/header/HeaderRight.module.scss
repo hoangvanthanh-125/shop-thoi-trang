@@ -92,12 +92,12 @@
       position: absolute;
       right: -18px;
       bottom: -410px;
-      border: 1px solid $main-color;
       border-radius: 3px;
       animation: appear ease-in 0.2s;
       transform-origin: calc(100% - 20px) top;
       padding: 10px;
       padding-top: 0;
+      @include box-style;
 
       .noCart {
         width: 100%;
@@ -232,12 +232,11 @@
 
       &:hover {
         .listDanhmuc {
-
+          @include box-style;
           justify-content: center;
           align-items: center;
           display: block;
           color: $main-text-color;
-          border: 1px solid $main-color;
           padding: 20px 10px;
           display: flex;
           flex-wrap: wrap;

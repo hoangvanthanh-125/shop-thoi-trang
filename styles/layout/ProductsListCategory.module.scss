@@ -1,7 +1,11 @@
 @import './../variant//varinant';
+@import './../mixin';
 .listCategory{
-  // border: 1px solid $main-color;
+  @include box-style;
+  margin-left: 10px;
+
   border-bottom: none;
+  animation: appear ease-in 0.2s;
 
   &__head{
     border-bottom:1px solid $main-color ;
@@ -23,6 +27,7 @@
       align-items: center;
       &:hover{
         background-color: $hover-color;
+        transition:all ease-in 0.15s
       }
     }
     
@@ -42,5 +47,13 @@
 @media (max-width:740px){
   .listCategory{
     display: none;
+  }
+}
+@keyframes appear {
+  0%{
+    transform:translateX(-100%)
+  }
+  100%{
+    transform:translateX(0%)
   }
 }

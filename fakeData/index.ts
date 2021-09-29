@@ -120,7 +120,7 @@ export const listDanhmuc = [
     id: 2,
     name: "Thời trang nữ",
     url: "https://kayo.vn/wp-content/uploads/2021/06/Ao-thun-nu-trang-tay-ngan-1-400x533.jpg",
-    path:'thoi-trang nu'
+    path:'thoi-trang-nu'
 
   },
   {

@@ -1,15 +1,15 @@
 import "../styles/globals.scss";
 import Header from "./../components/Header";
 import Footer from "./../components/Footer";
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
+
 import {
   createTheme,
   makeStyles,
   ThemeProvider,
 } from "@material-ui/core/styles";
 import { useRouter } from "next/router";
-// import "slick-carousel/slick/slick.css";
-// import "slick-carousel/slick/slick-theme.css";
-
 import { wrapper } from "../redux/store";
 import app, { AppContext } from "next/app";
 import LayOut from "../components/layout";
