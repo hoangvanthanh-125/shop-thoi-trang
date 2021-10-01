@@ -11,9 +11,11 @@ import style from "./../../styles/layout/Products.module.scss";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import Collapse from "@material-ui/core/Collapse";
+import snowStyle from "./../../styles/layout/Snow.module.scss";
 
 import FilterBody from "../../components/ProductsFilter/FilterBody";
 import textStyle from "./../../styles/layout/TextEffect.module.scss";
+import { renderSnow } from "../../components/Carousel";
 function ProductsPage({
   listProduct,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
@@ -56,6 +58,7 @@ function ProductsPage({
                   {currentListTypeProduct[0]?.name}
                 </span>
               </h5>
+              <div className={snowStyle.container}>{renderSnow()}</div>
             </div>
           </Grid>
           <Grid container className={style.containerProduct}>
@@ -78,7 +81,7 @@ function ProductsPage({
                   timeout={500}
                 >
                   <div className={style.content} style={{ transition: "3s" }}>
-                    <FilterBody  />
+                    <FilterBody />
                   </div>
                 </Collapse>
               </div>

@@ -30,13 +30,14 @@
 }
 
 .intro {
+  position: relative !important;
   @include box-style;
  margin-bottom: 20px;
  margin-left: 10px;
   width: calc(100% - 20px);
   display: flex;
   height: 300px;
-  background: black;
+  background: $main-color;
   background-clip: content-box;
   color: $second-color;
   justify-content: center;

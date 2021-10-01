@@ -24,7 +24,7 @@ function FormComment({ handleAddListComment }: PropsType) {
         star,
         timeAt: new Date(),
       };
-      if(handleAddListComment){
+      if (handleAddListComment) {
         handleAddListComment(newComment);
       }
     }

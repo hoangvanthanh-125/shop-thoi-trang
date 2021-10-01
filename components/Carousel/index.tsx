@@ -4,6 +4,17 @@ import style from "./../../styles/layout/Carousel.module.scss";
 import Slider from "react-slick";
 import Head from "next/head";
 import Link from "next/link";
+import ArrowRightIcon from '@material-ui/icons/ArrowRight';
+import snowStyle from './../../styles/layout/Snow.module.scss'
+export const renderSnow = () => {
+const snow = <div className={snowStyle.snow}></div>;
+const listSnow = [];
+for(let i = 0;i<600;i++){
+ listSnow.push(snow);
+}
+return listSnow;
+
+}
 function Carousel(props) {
   const [currentUrl, setCurentUrl] = useState(listCarousel[0].url);
   const settings = {
@@ -61,6 +72,13 @@ function Carousel(props) {
 
                 <p className={style.contact__action}>Xem sản phẩm</p>
               </Link>
+            </div>
+            {/* <ArrowRightIcon className={style.iconSnow} /> */}
+            {
+             
+            }
+            <div className={snowStyle.container} >
+           {renderSnow()}
             </div>
           </div>
         ))}
