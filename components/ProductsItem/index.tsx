@@ -9,13 +9,13 @@ type PropsType = {
 };
 
 function ProductItem({ product }: PropsType) {
-  const { name, price, star, sale, listImg,id} = product;
+  const { name, price, stars, sale, listImg,id} = product;
   return (
   <Link href={`/products/${id}/${name}`}>
     <Card className={style.productItem}>
       <img className={style.img} src={listImg[0]} alt="loading" />
       <div className={style.rating}>
-        <Rating name="hover-feedback" value={star} />
+        <Rating name="hover-feedback" value={stars[0]} />
       </div>
       <p className={style.nameProduct}>{name}</p>
       <div className={style.price}>

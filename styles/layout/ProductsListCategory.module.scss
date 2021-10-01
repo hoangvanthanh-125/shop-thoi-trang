@@ -9,6 +9,7 @@
 
   &__head{
     border-bottom:1px solid $main-color ;
+    border-radius: 5px 5px 0 0;
     padding: 10px;
     text-align: start;
     color: $second-color;
@@ -29,7 +30,12 @@
         background-color: $hover-color;
         transition:all ease-in 0.15s
       }
+      
     }
+    &__item:last-child{
+      border-radius:0 0 5px 5px;
+     }
+    
     
   }
 }

@@ -1,0 +1,150 @@
+@import './../mixin';
+@import './../variant/varinant';
+.info{
+  
+  @include box-style;
+  padding: 20px 20px;
+  border-radius: 5px;
+  margin-left: 20px;
+  padding-bottom: 30px;
+  height: 500px;
+  @media (max-width:740px){
+    margin-top: 30px;
+    margin-left: 0px;
+    height: auto;
+  }
+}
+.nameProduct{
+  margin-bottom: 20px;
+
+}
+.parameter{
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  .rating{
+    display: flex;
+    justify-content: flex-start;
+    align-items: fle;
+    color:$special-color !important;
+    &__icon{
+      color: $special-color;
+      font-size: 16px;
+      margin-left: 5px;
+      margin-right: 10px;
+    }
+  }
+  &__item{
+    color: gray;
+    margin-right: 10px;
+    padding-right: 10px;
+    border-right: 1px solid lightgray;
+  }
+}
+.price{
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: flex-start ;
+  align-items: center;
+  &__real{
+    color: gray;
+    text-decoration: line-through;
+    font-size: 15px;
+    margin-right: 20px;
+  }
+  &__sale{
+    color: $special-color;
+  }
+}
+.wrapListSize{
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.size{
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  &__title{
+    margin-right: 20px;
+    color: gray;
+    width: 100px;
+
+  }
+  &__item{
+    width: 40px;
+    height: 40px;
+    border: 1px solid lightgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: all ease-in 0.2s;
+  }
+  &__itemActive{
+    color: $second-color;
+    background: $main-color;
+  }
+  
+}
+.quantity{
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  &__title{
+    width: 100px;
+    color: gray;
+    margin-right: 20px;
+  }
+  .wrapChangeQuantity{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    &__item{
+      width: 40px;
+    height: 40px;
+    border: 1px solid lightgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    }
+  }
+}
+.action{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  &__addCart{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    height: 40px;
+    border: 1px solid black;
+    cursor: pointer;
+  
+  }
+  &__payment{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    height: 40px;
+    border: 1px solid black;
+    background: $main-color;
+    color: $second-color;
+    margin-right: 20px;
+    cursor: pointer;
+    &:hover{
+      opacity: 0.8;
+    }
+
+  }
+}
+

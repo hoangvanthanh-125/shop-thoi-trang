@@ -1,41 +1,194 @@
+.wrapBox {
+  position: relative;
+  width: 100vw;
+  background-color: yellow;
+}
 
-.box{
-  width: 100%;
+.box {
+  width: 100% !important;
   height: 100vh !important;
   object-fit: cover;
 }
-.container{
-   margin-right: 0;
-   width: 100% !important;
-  button:nth-child(3){
-    right: 20px !important;
+
+.overlayBox {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgb(0, 0, 0, 0.8);
+}
+
+.imageCarosel {
+  border: 5px solid white;
+  position: absolute;
+  width: 250px;
+  height: 150px;
+  object-fit: contain;
+  top: 19%;
+  left: 20%;
+  z-index: 10;
+  transform: rotate(-20deg);
+  animation: appear_fade ease-in 2s;
+}
+
+.imageCarosel_1 {
+  top: calc(20% + 190px);
+  left: 10%;
+  transform: rotate(15deg);
+  animation: appear_1 ease-in 0.5s;
+}
+
+.imageCarosel_2 {
+  top: calc(20% + 335px);
+  left: 10%;
+  left: 25%;
+  transform: rotate(-30deg);
+
+  @media (max-width: 1300px) and (min-width: 1024px) {
+    left: 30%;
   }
-   button:nth-child(1){
-   
-    left : 20px !important;
-    z-index: 10 !important;
+}
+
+.contact {
+
+  overflow-y: hidden;
+  animation: appear_fade ease-in 3s;
+  position: absolute;
+  top: 19%;
+  right: 10%;
+  z-index: 10;
+  width: 400px;
+  color: white;
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+
+  &__nameshop {
+    display: inline;
+    position: relative;
+    margin-bottom: 20px;
+    text-align: start;
+
+    &::after {
+      content: "";
+      width: 70px;
+      height: 3px;
+      position: absolute;
+      bottom: -5px;
+      background: white;
+      left: 0;
+      right: 0;
+    }
   }
 
+  &__slogan {
+    margin-bottom: 20px;
+    text-align: start;
+    color: rgb(160, 150, 150);
+  }
+
+  &__description {
+    margin-bottom: 20px;
+    text-align: start;
+    color: rgb(160, 150, 150);
+    line-height: 25px;
+  }
+
+  &__action {
+    margin-bottom: 20px;
+    text-align: start;
+    cursor: pointer;
+    display: inline;
+
+    &::after {
+      content: "";
+      width: 0px;
+      height: 1px;
+      position: absolute;
+      bottom: 16px;
+      background: white;
+      left: 54px;
+      right: 0;
+      transition: all ease-in 0.2s;
+    }
+
+    &:hover {
+      &::after {
+        transition: all ease-in 0.2s;
+        left: 0px;
+        width: 107px;
+      }
+    }
+  }
 }
-.slide{
+
+.container {
+  margin-right: 0;
+  width: 100% !important;
+
+  button:nth-child(3) {
+    right: 20px !important;
+  }
+
+  button:nth-child(1) {
+    left: 20px !important;
+    z-index: 3 !important;
+  }
+}
+
+.slide {
   width: 100% !important;
   height: 100vh !important;
   padding: 0 !important;
 }
 
-@media (max-width:740px){
-  .slide{
+@media (max-width: 740px) {
+  .slide {
     width: 100% !important;
     min-height: 50vh;
     height: 50vh !important;
     padding: 0 !important;
-   
   }
-  .box{
+
+  .box {
     width: auto;
 
-    height:50vh !important;
+    height: 50vh !important;
     object-fit: cover;
   }
-  
+
+}
+
+@media(max-width:1023px) {
+  .wrapBox {
+
+    .overlayBox,
+    .imageCarosel,
+    .contact {
+      display: none;
+    }
+  }
+}
+
+@keyframes appear_1 {
+  0% {
+    left: 0%;
+
+  }
+
+  100% {
+    left: 10%;
+
+  }
+}
+
+@keyframes appear_fade {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }

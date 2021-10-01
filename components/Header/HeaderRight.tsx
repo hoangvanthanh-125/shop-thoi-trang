@@ -9,12 +9,14 @@ import { useAppDispatch, useAppSelector } from "../../redux/hook";
 import { uiActions } from "../../redux/slice/uiSlice";
 import { useRouter } from "next/router";
 import Badge from "@material-ui/core/Badge";
+import Link from "next/link";
 
 function HeaderRight(props) {
   const { isOpenSearchMobile } = useAppSelector((state) => state.uiReducer);
   const router = useRouter();
+  const { asPath } = router;
   const dispatch = useAppDispatch();
-  const { listCart } = useAppSelector(state => state.cartReducer)
+  const { listCart } = useAppSelector((state) => state.cartReducer);
   const handleClickOpenSearch = () => {
     dispatch(uiActions.openSearchMobile());
     dispatch(uiActions.openOverlay());
@@ -27,15 +29,33 @@ function HeaderRight(props) {
       router.push("/");
     }
   };
+  function active(path: string) {
+    if (path === "/products" && asPath.indexOf("/products") >= 0) {
+      return true;
+    }
+    return path === asPath;
+  }
   return (
     <div className={style.header__right}>
       <ul>
         {listHeader.map((data, index) => (
-          <li onClick={() => hancleClick(data.name)} key={index}>
-            <span> {data.name}</span>
+          <li
+            className={active(data.path) && style.itemHeaderActive}
+            key={index}
+          >
+            <span onClick={() => hancleClick(data.name)}> {data.name}</span>
             <div className={style.listDanhmuc}>
               {listDanhmuc.map((item, index) => (
-                <span key={index}>{item.name}</span>
+                <Link key={index} href={`products?type=${item.path}`} passHref>
+                  <span
+                    className={`${
+                      asPath == `/products?type=${item.path}` &&
+                      style.danhmucActive
+                    }`}
+                  >
+                    {item.name}
+                  </span>
+                </Link>
               ))}
             </div>
           </li>
