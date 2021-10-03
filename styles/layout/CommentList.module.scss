@@ -1,0 +1,67 @@
+@import '../mixin';
+@import './../variant/varinant';
+.wrapListCommnet{
+}
+.commentItem{
+  position: relative;
+  border-top: 1px solid lightgray;
+
+  padding: 30px 0;
+  .nameUser{
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: 5px;
+  }
+  .content{
+    width: 100%;
+    word-wrap: break-word;
+  }
+  .date{
+    color: gray;
+    font-size: small;
+    margin-top:5px;
+    @media (max-width:740px){
+    font-size: 10px !important;
+    }
+  }
+ 
+}
+.moreIcon{
+  display: flex;
+  flex-direction: row-reverse;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  z-index: 13;
+  cursor: pointer;
+  &:hover{
+    .moreAction{
+      display: block;
+     
+    }
+  }
+ .moreAction{
+   display: none;
+   border: 1px solid lightgrey;
+   transition: all ease-in 2s;
+   cursor: pointer;
+   @include box-style;
+   background: white;
+   .action__item{
+    display: flex;
+    &:hover{
+      background-color: $hover-color;
+    }
+   
+    padding: 10px;
+    justify-content: flex-start;
+    &:nth-child(1){
+      border-bottom:1px solid lightgray ;
+    }
+    align-items: center;
+    &__icon{
+      margin-right: 5px;
+    }
+   }
+ }
+}

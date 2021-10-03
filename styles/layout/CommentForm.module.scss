@@ -1,34 +1,90 @@
 @import './../mixin';
 @import './../variant//varinant';
-.star{
+
+.star {
   margin-bottom: 5px;
 }
-.formComment{
+
+.formComment {
 
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  &__inputCmt{
+
+  &__inputCmt {
     @include input-style;
     padding: 20px;
-    border: 1px solid gray;
+    border: 1px solid lightgray;
     margin-right: 20px;
-    width: 400px;
+    width: 800px;
     max-width: 80%;
-    border-radius: 5px
- 
+    border-radius: 5px;
+    height: 150px;
+
+    &:focus {
+      border: 1px solid blue
+    }
+
+
   }
-  &__submitCmt{
-    @include button-style; 
-    height: 100%; 
+
+  .wrapAction {
+    max-width: 20%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+    .quitEditCmt {}
+  }
+
+  &__submitCmt {
+    @include button-style;
+    width: 100%;
+    height: 100%;
     background: $main-color;
-    color:$second-color;
+    color: $second-color;
     height: 60px;
     padding: 0 20px;
-    max-width: 20%;
+
     cursor: pointer;
-    &:hover{
+
+    &:hover {
       opacity: 0.8;
+    }
+
+    &:nth-child(2) {
+      color: $main-color !important;
+      background: $second-color !important;
+      border: 1px solid $main-color !important;
+      margin-top: 10px;
+    }
+  }
+}
+
+.inputEdit {
+  background:lightgray;
+}
+
+@media (max-width:740px) {
+  
+  .formEdit {
+    flex-direction: column;
+
+    .inputEdit {
+      max-width: 100%;
+      margin-right: 0;
+    }
+
+    .wrapAction {
+      max-width: 100%; 
+      justify-content: center;
+      align-items: flex-end;
+      flex-direction: row;
+      input {
+        width: 100px;
+        margin-right: 20px;
+      }
+
     }
   }
 }
