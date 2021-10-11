@@ -154,7 +154,7 @@
               margin-left: 10px;
               overflow: hidden;
               text-overflow: ellipsis;
-              width: 230px;
+              width: 180px;
 
             }
           }
@@ -217,6 +217,7 @@
         top: -27px;
         right: 10px;
         z-index: 100;
+        display: flex;
       }
     }
   }

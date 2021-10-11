@@ -5,11 +5,12 @@ import Slider from "react-slick";
 import Head from "next/head";
 import Link from "next/link";
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
-import snowStyle from './../../styles/layout/Snow.module.scss'
+import snowStyle from './../../styles/layout/Snow.module.scss';
+import AcUnitIcon from '@material-ui/icons/AcUnit';
 export const renderSnow = () => {
 const snow = <div className={snowStyle.snow}></div>;
 const listSnow = [];
-for(let i = 0;i<600;i++){
+for(let i = 0;i<200;i++){
  listSnow.push(snow);
 }
 return listSnow;

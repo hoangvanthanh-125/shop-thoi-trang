@@ -1,17 +1,57 @@
 import React, { useState } from "react";
 import Rating from "@material-ui/lab/Rating";
 import style from "./../../styles/layout/ProductDetailInfo.module.scss";
-import { Product } from "../../types";
+import { CartType, Product } from "../../types";
+import { useAppDispatch } from "../../redux/hook";
+import { addCartAction } from "../../redux/actions/cartActions";
+import { paymentAction } from "../../redux/slice/paymentSlice";
 interface PropsType {
   product: Product;
 }
 function ProductDetailInfo({ product }: PropsType) {
-  const { name, price, sale, star, listSize } = product;
+  const { name, price, sale, stars, listSize } = product;
   const [size, setSize] = useState("");
   const [quantity, setQuantity] = useState(1);
+  const dispatch = useAppDispatch();
   const handleChangeQuantity = (num) => {
     if (quantity + num !== 0) {
       setQuantity(quantity + num);
+    }
+  };
+  const handleCickBuy = () => {
+    if (!size) {
+      
+      alert("Vui lòng chọn size");
+    }
+    else{
+      const newCartPayment: CartType = {
+        cartItem: product,
+        size,
+        quantity,
+        id: Date.now().toString(),
+      };
+      dispatch(paymentAction.fetchListPayment([newCartPayment]));
+      
+    }
+  };
+  const handleClickAddCart = async() => {
+    if (!size) {
+      alert("Vui lòng chọn size");
+    } else {
+      const newCart: CartType = {
+        cartItem: product,
+        size,
+        quantity,
+        id: Date.now().toString(),
+      };
+      try{
+        dispatch(await addCartAction(newCart));
+        alert('Thêm thành công');
+
+      }catch(err){
+        alert(err)
+      }
+
     }
   };
   return (
@@ -21,11 +61,11 @@ function ProductDetailInfo({ product }: PropsType) {
       </div>
       <div className={style.parameter}>
         <div className={`${style.rating} ${style.parameter__item}`}>
-          <span>{star} </span>
+          <span>{stars[0]} </span>
           <Rating
             className={style.rating__icon}
             name="hover-feedback"
-            value={star}
+            value={stars[0]}
           />
         </div>
         <div className={style.parameter__item}>10 đánh giá</div>
@@ -73,8 +113,15 @@ function ProductDetailInfo({ product }: PropsType) {
         </div>
       </div>
       <div className={style.action}>
-      <div className={style.action__payment}>Mua ngay</div>
-        <div className={style.action__addCart}>Thêm vào giỏ hàng</div>
+        <div onClick={() => handleCickBuy()} className={style.action__payment}>
+          Mua ngay
+        </div>
+        <div
+          onClick={() => handleClickAddCart()}
+          className={style.action__addCart}
+        >
+          Thêm vào giỏ hàng
+        </div>
       </div>
     </div>
   );

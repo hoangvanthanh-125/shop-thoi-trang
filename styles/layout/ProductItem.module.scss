@@ -2,6 +2,7 @@
 @import './../variant/varinant';
 .productItem {
   @include box-style ;
+  position: relative;
   margin-left: 10px;
   margin-bottom: 10px;
   padding-bottom: 15px;
@@ -31,7 +32,7 @@
 }
 .noRating{
   color: gray;
-  font-size: small;
+font-size: small;
 }
 .nameProduct {
   padding: 5px;
@@ -51,5 +52,27 @@
   &__sale{
     color: gray;
     text-decoration: line-through;
+  }
+}
+.sale{
+  width: 0px;
+  height: 0px;
+  position: absolute;
+ 
+  border-bottom:25px solid transparent ;
+  border-top: 30px solid red;
+  border-left: 25px solid red;
+  border-right: 25px solid red;  
+  right: 0;
+  top: 0;
+  &__number{
+    position: absolute;
+    right: 25px;
+    transform: translateX(50%);
+    top: 6px;
+    z-index: 10;
+    color: white;
+    display: flex;
+    
   }
 }

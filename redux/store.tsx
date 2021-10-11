@@ -3,12 +3,14 @@ import {combineReducers} from '@reduxjs/toolkit'
 import { uiReducer } from './slice/uiSlice'
 import { createWrapper } from 'next-redux-wrapper';
 import {cartReducer} from './slice/cartSlice'
+import {paymentReducer} from './slice/paymentSlice';
 
 
 const store = configureStore({
     reducer:{
       uiReducer,
-      cartReducer
+      cartReducer,
+      paymentReducer
     },
     devTools: true,
 })

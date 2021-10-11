@@ -10,7 +10,7 @@ import { uiActions } from "../../redux/slice/uiSlice";
 import { useRouter } from "next/router";
 import Badge from "@material-ui/core/Badge";
 import Link from "next/link";
-
+import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 function HeaderRight(props) {
   const { isOpenSearchMobile } = useAppSelector((state) => state.uiReducer);
   const router = useRouter();
@@ -43,7 +43,7 @@ function HeaderRight(props) {
             className={active(data.path) && style.itemHeaderActive}
             key={index}
           >
-            <span onClick={() => hancleClick(data.name)}> {data.name}</span>
+            <span  onClick={() => hancleClick(data.name)}> {data.name}</span>
             <div className={style.listDanhmuc}>
               {listDanhmuc.map((item, index) => (
                 <Link key={index} href={`products?type=${item.path}`} passHref>
@@ -68,12 +68,14 @@ function HeaderRight(props) {
         }`}
       />
       <div className={style.wrapcart}>
-        <Badge badgeContent={listCart?.length} color="primary">
+        <div style={{position:'relative',zIndex:1000000000000}} onClick={() => router.push("/cart")}>
+        <Badge   badgeContent={listCart?.length} color="primary">
           <ShoppingCartOutlinedIcon
-            onClick={() => router.push("/cart")}
+          
             className={style.iconCart}
           />{" "}
         </Badge>
+        </div>
 
         <div className={style.listCart}>
           {listCart.length > 0 ? (
@@ -85,7 +87,7 @@ function HeaderRight(props) {
                 {listCart.map((item, index) => (
                   <div className={style.listCart__body__item} key={index}>
                     <div>
-                      <img src={item?.cartItem.urlImg} alt="" />
+                      <img src={item?.cartItem.listImg[0]} alt="" />
                       <span>{item?.cartItem?.name}</span>
                     </div>
                     <span className={style.price}>{item?.cartItem.price}</span>

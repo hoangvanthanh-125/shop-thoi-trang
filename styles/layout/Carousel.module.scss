@@ -1,12 +1,12 @@
 .wrapBox {
   position: relative;
   width: 100vw;
-  height: 100vh;
+  height: 110vh;
 }
 
 .box {
   width: 100% !important;
-  height: 100vh !important;
+  height: 110vh !important;
   object-fit: cover;
 }
 
@@ -184,12 +184,17 @@
 
 @keyframes appear_1 {
   0% {
-    left: 0%;
+    // left: 0%;
+    transform: translateX(-100%);
+    opacity: 0;
 
   }
 
   100% {
-    left: 10%;
+    // left: 10%;
+    opacity: 1;
+    transform: translateX(00%);
+
 
   }
 }

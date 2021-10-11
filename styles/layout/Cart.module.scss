@@ -33,8 +33,7 @@
 }
 
 .cart {
-
-  margin-top: $height-header;
+  margin-top: 75px !important;
   width: 100%;
   min-height: $min-height-page;
 
@@ -90,13 +89,13 @@
         flex-direction: column;
 
         .name {
-          width: 130px; // chiều rộng bằng khối bao nó
-          white-space: pre-wrap;
-          overflow: hidden; // ẩn các nội dung khi kích thước lớn hơn chiều rộng khối bên ngoài
-          text-overflow: ellipsis; //thêm 3 dấu chấm ở cuối
-          -webkit-line-clamp: 3; // số dòng muốn hiển thị
-          -webkit-box-orient: vertical;
-          display: -webkit-box;
+          display: inline-block;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              -webkit-line-clamp: 3; 
+              width: 150px;
+
 
           @media (max-width:740px) {
             width: 100px;

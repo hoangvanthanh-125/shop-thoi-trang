@@ -16,9 +16,10 @@ import LayOut from "../components/layout";
 import { useAppDispatch, useAppSelector } from "../redux/hook";
 import { useEffect } from "react";
 import { cartActions } from "../redux/slice/cartSlice";
-import { listCart } from "../fakeData";
+import { listCart, listProducts } from "../fakeData";
 function MyApp({ Component, pageProps }) {
   const dispatch = useAppDispatch();
+  const {list} = pageProps;    
   const theme = createTheme({
     breakpoints: {
       values: {

@@ -10,18 +10,9 @@ import { unwrapResult } from "@reduxjs/toolkit";
 import { fetchAllListCart, updateCart } from "../../redux/actions/cartActions";
 import { cartActions } from "../../redux/slice/cartSlice";
 import { uiActions } from "../../redux/slice/uiSlice";
-export type Product = {
-  id: string;
-  name: string;
-  price: number;
-  urlImg: string;
-  size?: number;
-};
-export type CartType = {
-  id: string | number;
-  cartItem: Product;
-  quantity: number;
-};
+import { CartType, Product } from "../../types";
+import { paymentAction } from "../../redux/slice/paymentSlice";
+
 function Cart({}) {
   const dispatch = useAppDispatch();
   const { listCart } = useAppSelector((state) => state.cartReducer);
@@ -78,6 +69,14 @@ function Cart({}) {
       }
     }
   };
+  const handleClickPayment = () => {
+    if(listCartPayment.length === 0){
+      alert('Không có sản phẩm nào được chọn');
+    }
+    else{
+      dispatch(paymentAction.fetchListPayment(listCartPayment));
+    }
+  }
   // useEffect(() => {
   //   if (list) {
   //     dispatch(cartActions.fetchAllCart(list));
@@ -99,7 +98,7 @@ function Cart({}) {
                   />
                   <img
                     className={style.item__left__img}
-                    src={item?.cartItem.urlImg}
+                    src={item?.cartItem.listImg[0]}
                   />
                   <div className={style.item__left__info}>
                     <p className={style.name}>{item?.cartItem.name}</p>
@@ -138,7 +137,7 @@ function Cart({}) {
           <Card className={style.payment}>
             <p className={style.payment__title}>Tổng tiền</p>
             <p className={style.payment__price}>{totalMoney}</p>
-            <button className={style.payment__action}>Thanh toán ngay</button>
+            <button onClick = {() => handleClickPayment()} className={style.payment__action}>Thanh toán ngay</button>
           </Card>
         </Grid>
       </Grid>
@@ -146,7 +145,7 @@ function Cart({}) {
         <div className={style.payment__mobile__left}>
           <p>Tổng tiền : {totalMoney}</p>
         </div>
-        <div className={style.payment__mobile__right}>Thanh toán</div>
+        <div onClick={() => handleClickPayment()} className={style.payment__mobile__right}>Thanh toán</div>
       </div>
     </div>
   ) : (

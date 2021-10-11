@@ -1,5 +1,5 @@
 import { Card, Grid } from "@material-ui/core";
-import { GetServerSideProps, InferGetServerSidePropsType } from "next";
+import { GetServerSideProps, GetServerSidePropsResult, GetStaticProps, InferGetServerSidePropsType } from "next";
 import React, { useState } from "react";
 import Products from "../../components/products";
 import ProductsFilter from "../../components/ProductsFilter";
@@ -16,6 +16,8 @@ import snowStyle from "./../../styles/layout/Snow.module.scss";
 import FilterBody from "../../components/ProductsFilter/FilterBody";
 import textStyle from "./../../styles/layout/TextEffect.module.scss";
 import { renderSnow } from "../../components/Carousel";
+import { wrapper } from "../../redux/store";
+import { uiActions } from "../../redux/slice/uiSlice";
 function ProductsPage({
   listProduct,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
@@ -96,7 +98,6 @@ function ProductsPage({
   );
 }
 export const getServerSideProps: GetServerSideProps = async (contex) => {
-  //call APi
   const listProduct: Product[] = listProducts;
   return {
     props: {
@@ -104,5 +105,7 @@ export const getServerSideProps: GetServerSideProps = async (contex) => {
     },
   };
 };
+
+
 
 export default ProductsPage;

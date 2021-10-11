@@ -18,7 +18,8 @@ const uiSlice = createSlice({
   name: "ui",
   initialState,
   reducers: {
-    openSideBar: (state) => {
+   
+    openSideBar: (state) => {      
       state.isOpenSideBar = true;
     },
     closeSideBar: (state) => {

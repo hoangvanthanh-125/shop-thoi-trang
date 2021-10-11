@@ -19,3 +19,9 @@ export type CommentItem = {
   star:number,
   timeAt:Date
 }
+export type CartType = {
+  id: string | number;
+  cartItem: Product
+  quantity: number;
+  size?:string
+};
