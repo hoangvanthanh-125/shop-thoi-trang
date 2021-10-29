@@ -1,0 +1,16 @@
+@import './../variant/varinant';
+.wrapSearch{
+  margin-top:$height-header;
+  padding: 20px;
+  @media (max-width:740px){
+    padding-left: 10px;
+  }
+}
+.noti{
+  margin-left: 10px;
+  margin-bottom: 20px;
+}
+.textSearch{
+  color:$special-color;
+  margin-left: 10px;
+}

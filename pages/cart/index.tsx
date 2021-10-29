@@ -12,6 +12,7 @@ import { cartActions } from "../../redux/slice/cartSlice";
 import { uiActions } from "../../redux/slice/uiSlice";
 import { CartType, Product } from "../../types";
 import { paymentAction } from "../../redux/slice/paymentSlice";
+import router from "next/router";
 
 function Cart({}) {
   const dispatch = useAppDispatch();
@@ -75,6 +76,7 @@ function Cart({}) {
     }
     else{
       dispatch(paymentAction.fetchListPayment(listCartPayment));
+      router.push("/payment")
     }
   }
   // useEffect(() => {

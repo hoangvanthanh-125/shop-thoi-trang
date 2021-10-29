@@ -137,28 +137,39 @@
           padding: 10px;
           margin-bottom: 10px;
           display: flex;
-          justify-content: space-between;
+          justify-content: start;
 
           &:hover {
             background: $hover-color;
             cursor: pointer;
           }
-
-          div {
+          .wrapInfoProduct{
             display: flex;
             justify-content: flex-start;
-
-            span {
-              display: inline-block;
-              white-space: nowrap;
-              margin-left: 10px;
-              overflow: hidden;
-              text-overflow: ellipsis;
-              width: 180px;
-
-            }
+            align-items: flex-start;
+            flex-direction: column;
+          }
+          .wrapNamePrice{
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
           }
 
+          .name{
+            display: inline-block;
+            white-space: nowrap;
+            margin-left: 10px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 180px;
+          }
+          .size{
+            margin-left: 10px;
+          }
+          .quantity{
+            color: gray;
+            font-size: 13px;
+          }
           .price {
             color: $main-color;
             margin-right: 10px;

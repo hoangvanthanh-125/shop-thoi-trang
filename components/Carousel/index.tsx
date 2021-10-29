@@ -79,7 +79,7 @@ function Carousel(props) {
              
             }
             <div className={snowStyle.container} >
-           {renderSnow()}
+           {/* {renderSnow()} */}
             </div>
           </div>
         ))}

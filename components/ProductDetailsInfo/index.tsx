@@ -5,6 +5,7 @@ import { CartType, Product } from "../../types";
 import { useAppDispatch } from "../../redux/hook";
 import { addCartAction } from "../../redux/actions/cartActions";
 import { paymentAction } from "../../redux/slice/paymentSlice";
+import router from "next/router";
 interface PropsType {
   product: Product;
 }
@@ -31,6 +32,7 @@ function ProductDetailInfo({ product }: PropsType) {
         id: Date.now().toString(),
       };
       dispatch(paymentAction.fetchListPayment([newCartPayment]));
+      router.push("/payment")
       
     }
   };

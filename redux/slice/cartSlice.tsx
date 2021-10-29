@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { HYDRATE } from "next-redux-wrapper";
 import build from "next/dist/build";
-import { CartType } from "../../pages/cart";
+import { CartType } from "../../types";
 import { addCartAction, fetchAllListCart } from "../actions/cartActions";
 interface TypeState {
   listCart: CartType[];

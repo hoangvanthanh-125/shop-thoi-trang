@@ -10,13 +10,16 @@ import { uiActions } from "../../redux/slice/uiSlice";
 import { useRouter } from "next/router";
 import Badge from "@material-ui/core/Badge";
 import Link from "next/link";
-import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 function HeaderRight(props) {
   const { isOpenSearchMobile } = useAppSelector((state) => state.uiReducer);
   const router = useRouter();
   const { asPath } = router;
   const dispatch = useAppDispatch();
   const { listCart } = useAppSelector((state) => state.cartReducer);
+  const totalQuantityProduct = listCart.reduce((total,item) => {
+    return total + item.quantity;
+  },0)
   const handleClickOpenSearch = () => {
     dispatch(uiActions.openSearchMobile());
     dispatch(uiActions.openOverlay());
@@ -43,10 +46,10 @@ function HeaderRight(props) {
             className={active(data.path) && style.itemHeaderActive}
             key={index}
           >
-            <span  onClick={() => hancleClick(data.name)}> {data.name}</span>
+            <span onClick={() => hancleClick(data.name)}> {data.name}</span>
             <div className={style.listDanhmuc}>
               {listDanhmuc.map((item, index) => (
-                <Link key={index} href={`products?type=${item.path}`} passHref>
+                <Link key={index} href={`/products?type=${item.path}`} passHref>
                   <span
                     className={`${
                       asPath == `/products?type=${item.path}` &&
@@ -68,13 +71,13 @@ function HeaderRight(props) {
         }`}
       />
       <div className={style.wrapcart}>
-        <div style={{position:'relative',zIndex:1000000000000}} onClick={() => router.push("/cart")}>
-        <Badge   badgeContent={listCart?.length} color="primary">
-          <ShoppingCartOutlinedIcon
-          
-            className={style.iconCart}
-          />{" "}
-        </Badge>
+        <div
+          style={{ position: "relative", zIndex: 1000000000000 }}
+          onClick={() => router.push("/cart")}
+        >
+          <Badge badgeContent={totalQuantityProduct} color="primary">
+            <ShoppingCartOutlinedIcon className={style.iconCart} />{" "}
+          </Badge>
         </div>
 
         <div className={style.listCart}>
@@ -86,16 +89,24 @@ function HeaderRight(props) {
               <div className={style.listCart__body}>
                 {listCart.map((item, index) => (
                   <div className={style.listCart__body__item} key={index}>
-                    <div>
-                      <img src={item?.cartItem.listImg[0]} alt="" />
-                      <span>{item?.cartItem?.name}</span>
+                    <img src={item?.cartItem.listImg[0]} alt="" />
+                    <div className={style.wrapInfoProduct}>
+                      <div className={style.wrapNamePrice}>
+                        <span className={style.name}>
+                          {item?.cartItem?.name}
+                        </span>
+                        <span className={style.price}>
+                          {item?.cartItem.price}
+                        </span>
+                      </div>
+                      <p className={style.size}>Size : {item?.size} <span className={style.quantity}>({item.quantity} sản phẩm )</span></p>
+                      
                     </div>
-                    <span className={style.price}>{item?.cartItem.price}</span>
                   </div>
                 ))}
               </div>
               <div className={style.listCart__footer}>
-                <span>100 thêm vào giỏ hàng</span>
+                <span>{totalQuantityProduct} thêm vào giỏ hàng</span>
                 <button>Xem giỏ hàng</button>
               </div>
             </div>

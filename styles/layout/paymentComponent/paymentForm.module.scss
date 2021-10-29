@@ -1,0 +1,35 @@
+@import './../../variant/varinant';
+@import './../../mixin';
+.wrapForm{
+padding: 20px;
+@include box-style;
+}
+.formHead{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &__title{
+    margin-left: 10px;
+  }
+}
+.wrapField{
+  margin-top: 15px;
+ .notiError{
+   color: red;
+   margin-top: 5px;
+   font-size: 12px;
+ }
+}
+.buttonSubmit{
+  @include button-style;
+  width: 100%;
+  cursor: pointer;
+  color: $second-color;
+  background:$main-color;
+  margin-top: 15px;
+  &:hover{
+    opacity: 0.8;
+  }
+
+}

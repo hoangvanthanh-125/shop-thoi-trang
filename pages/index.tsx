@@ -1,26 +1,12 @@
 import Head from "next/head";
-import Image from "next/image";
-import Badge from "@material-ui/core/Badge";
-import MailIcon from "@material-ui/icons/Mail";
-import styles from "../styles/Home.module.scss";
-import { Button, Card, Grid, TextField } from "@material-ui/core";
-import SideBar from "./../components/Sidebar";
-import OverLay from "./../components/overlay/overlay";
-import { useAppSelector } from "./../redux/hook";
-import HeaderSearch from "./../components/Header/HeaderSearch";
-import style from "./../styles/layout/header/Header.module.scss";
-import Carousel from "../components/Carousel";
-import HomeBody from "../components/HomeBody/HomeBody";
-import ProductCategory from "../components/productCategory";
 import { useState } from "react";
+import Carousel from "../components/Carousel";
+import ProductCategory from "../components/productCategory";
+import styles from "../styles/Home.module.scss";
+import { useAppSelector } from "./../redux/hook";
 
 
 export default function Home() {
-  const { isOpenSideBar, isOpenSearchMobile } = useAppSelector(
-    (state) => state.uiReducer
-  );
-  const [open, setOpen] = useState(false);
-
   return (
     <div className={styles.home}>
       <Head>
@@ -30,6 +16,7 @@ export default function Home() {
       </Head>
       <Carousel />
       <ProductCategory />
+      
     </div>
   );
 }
