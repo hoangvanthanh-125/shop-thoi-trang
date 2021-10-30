@@ -13,6 +13,7 @@ function Overlay() {
   dispatch(uiActions.closeSideBar());
   dispatch(uiActions.closeSearchMobile());
   dispatch(uiActions.closeFilterMobile());
+  dispatch(uiActions.closeUserInfo());
 
   }
 

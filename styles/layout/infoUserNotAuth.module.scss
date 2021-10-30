@@ -1,0 +1,44 @@
+@import './../variant/varinant';
+.infoContainer{
+  transform: translateX(100%);
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 11;
+  width: 350px;
+  background: white;
+  transition: ease-in 0.2s;
+  @media (max-width:740px){
+    width: 100%;
+  }
+}
+.infoContainerAppear{
+  transform: translateX(0%);
+  transition: ease-in 0.2s;
+}
+.head{
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid $hover-color;
+  padding: 20px 10px;
+  justify-content: space-between;
+  .clearIcon{
+    cursor: pointer;
+  }
+}
+.wrapLogin{
+  padding: 20px;
+  padding-left: 10px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  cursor: pointer;
+  &:hover{
+    background: $hover-color;
+  }
+  .title{
+    margin-left: 10px;
+  }
+}

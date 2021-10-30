@@ -59,11 +59,6 @@
     display: none;
   }
 
-  .iconAcc {
-    cursor: pointer;
-    color: $second-text-color;
-  }
-
   .wrapcart {
     position: relative;
     cursor: pointer;
@@ -359,6 +354,11 @@
   
   width: 100% !important;
   left: 0px !important;
+}
+.buttonLogin{
+  @include button-style;
+  color:$main-color;
+  background: $second-color;
 }
 //mobile
 @media (max-width:740px) {

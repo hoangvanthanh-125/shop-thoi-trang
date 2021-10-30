@@ -11,15 +11,16 @@ import { useRouter } from "next/router";
 import Badge from "@material-ui/core/Badge";
 import Link from "next/link";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
+import { Avatar } from "@material-ui/core";
 function HeaderRight(props) {
   const { isOpenSearchMobile } = useAppSelector((state) => state.uiReducer);
   const router = useRouter();
   const { asPath } = router;
   const dispatch = useAppDispatch();
   const { listCart } = useAppSelector((state) => state.cartReducer);
-  const totalQuantityProduct = listCart.reduce((total,item) => {
+  const totalQuantityProduct = listCart.reduce((total, item) => {
     return total + item.quantity;
-  },0)
+  }, 0);
   const handleClickOpenSearch = () => {
     dispatch(uiActions.openSearchMobile());
     dispatch(uiActions.openOverlay());
@@ -38,6 +39,10 @@ function HeaderRight(props) {
     }
     return path === asPath;
   }
+  const handleClickOpenInfoUser = () => {
+    dispatch(uiActions.openUserInfo());
+    dispatch(uiActions.openOverlay());
+  };
   return (
     <div className={style.header__right}>
       <ul>
@@ -99,8 +104,12 @@ function HeaderRight(props) {
                           {item?.cartItem.price}
                         </span>
                       </div>
-                      <p className={style.size}>Size : {item?.size} <span className={style.quantity}>({item.quantity} sản phẩm )</span></p>
-                      
+                      <p className={style.size}>
+                        Size : {item?.size}{" "}
+                        <span className={style.quantity}>
+                          ({item.quantity} sản phẩm )
+                        </span>
+                      </p>
                     </div>
                   </div>
                 ))}
@@ -115,7 +124,12 @@ function HeaderRight(props) {
           )}
         </div>
       </div>
-      <AccountCircleIcon className={style.iconAcc} />
+     <div onClick={() => handleClickOpenInfoUser()}>
+     <Avatar
+        style={{ width: 30, height: 30, cursor: "pointer" }}
+        src=""
+      ></Avatar>
+     </div>
     </div>
   );
 }

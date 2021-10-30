@@ -1,0 +1,48 @@
+@import './../mixin';
+@import './../variant//varinant';
+.container{
+}
+.avatar{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px;
+  .avatarIcon{
+    width: 150px;
+    height: 150px;
+    margin-bottom: 10px;
+  }
+  .inputFile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: gray;
+    @include button-style;
+    border: 1px solid lightgray;
+    width: 150px;
+    padding: 2px;
+    cursor: pointer;
+    &:hover{
+      color: black;
+    }
+    .title{
+      margin-left: 5px;
+    }
+
+  }
+}
+.wrapItem{
+  padding: 20px;
+  cursor: pointer;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  &:hover{
+    background: $hover-color;
+  }
+  .titleItem{
+    margin-left: 10px;
+  }
+}

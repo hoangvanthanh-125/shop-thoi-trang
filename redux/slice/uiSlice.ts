@@ -4,22 +4,31 @@ import { HYDRATE } from "next-redux-wrapper";
 interface State {
   isOpenSideBar: boolean;
   isOpenSearchMobile: boolean;
-  isOpenOverLay:boolean;
-  isOpenFilterMobile:boolean
+  isOpenOverLay: boolean;
+  isOpenOverLay2: boolean;
+  isOpenFilterMobile: boolean;
+  isOpenUserInfo: boolean;
+  isOpenModal: boolean;
+  headModal: string;
+  bodyModal: any;
 }
 const initialState = {
   isOpenSideBar: false,
   isOpenSearchMobile: false,
-  isOpenOverLay:false,
-  isOpenFilterMobile:false
+  isOpenOverLay: false,
+  isOpenOverLay2: false,
+  isOpenFilterMobile: false,
+  isOpenUserInfo: false,
+  isOpenModal: false,
+  headModal: "",
+  bodyModal: null,
 } as State;
 
 const uiSlice = createSlice({
   name: "ui",
   initialState,
   reducers: {
-   
-    openSideBar: (state) => {      
+    openSideBar: (state) => {
       state.isOpenSideBar = true;
     },
     closeSideBar: (state) => {
@@ -37,11 +46,35 @@ const uiSlice = createSlice({
     closeOverlay: (state) => {
       state.isOpenOverLay = false;
     },
+    openOverlay2: (state) => {
+      state.isOpenOverLay2 = true;
+    },
+    closeOverlay2: (state) => {
+      state.isOpenOverLay2 = false;
+    },
     openFilterMobile: (state) => {
       state.isOpenFilterMobile = true;
     },
     closeFilterMobile: (state) => {
       state.isOpenFilterMobile = false;
+    },
+    openUserInfo: (state) => {
+      state.isOpenUserInfo = true;
+    },
+    closeUserInfo: (state) => {
+      state.isOpenUserInfo = false;
+    },
+    openModal: (state) => {
+      state.isOpenModal = true;
+    },
+    closeModal: (state) => {
+      state.isOpenModal = false;
+    },
+    fetchHeadModal: (state, action) => {
+      state.headModal = action.payload;
+    },
+    fetchBodyModal: (state, action) => {
+      state.bodyModal = action.payload;
     },
   },
 

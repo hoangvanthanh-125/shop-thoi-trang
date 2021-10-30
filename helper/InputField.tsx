@@ -11,7 +11,7 @@ import { width } from "@mui/system";
 import React from "react";
 import { useController } from "react-hook-form";
 
-export const InputField = ({ control, name, placeholder }) => {
+export const InputField = ({ control, name, placeholder,type }) => {
   const {
     field: { ref, ...inputProps },
   } = useController({
@@ -21,6 +21,7 @@ export const InputField = ({ control, name, placeholder }) => {
   });
   return (
     <TextField
+    type={type || "text"}
       style={{ width: "100%"}}
       placeholder={placeholder}
       {...inputProps}

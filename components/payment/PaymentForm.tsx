@@ -69,11 +69,17 @@ function PaymentForm(props) {
       </div>
 
       <div className={style.wrapField}>
-        <InputField placeholder="Họ và tên" name="name" control={control} />
+        <InputField
+          type="text"
+          placeholder="Họ và tên"
+          name="name"
+          control={control}
+        />
         <p className={style.notiError}>{errors.name?.message}</p>
       </div>
       <div className={style.wrapField}>
         <InputField
+          type="text"
           placeholder="Số điện thoại"
           name="phone"
           control={control}
@@ -110,6 +116,7 @@ function PaymentForm(props) {
       </div>
       <div className={style.wrapField}>
         <InputField
+          type="text"
           placeholder="Địa chỉ cụ thể (xóm,đường,số nhà,...)"
           name="specificLocation"
           control={control}

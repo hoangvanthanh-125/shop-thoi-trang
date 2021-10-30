@@ -1,17 +1,19 @@
 import React from 'react';
-import Footer from '../Footer';
-import Overlay from '../overlay/overlay';
-import SideBar from '../Sidebar';
-import Header from './../Header/index'
-import style from './../../styles/layout/header/Header.module.scss'
 import { useAppSelector } from '../../redux/hook';
-import HeaderSearch from '../Header/HeaderSearch';
-import styleLayout from './../../styles/layout/index.module.scss'
 import FilterMobile from '../FilterMobile';
-import ScrollTop from '../ScrollTop';
+import Footer from '../Footer';
+import HeaderSearch from '../Header/HeaderSearch';
+import InfoUser from '../InfoUser';
+import ModalCpn from '../modal';
+import Overlay from '../overlay/overlay';
+import Overlay2 from '../overlay/overlay2';
+import SideBar from '../Sidebar';
+import style from './../../styles/layout/header/Header.module.scss';
+import styleLayout from './../../styles/layout/index.module.scss';
+import Header from './../Header/index';
 
 function LayOut({children,atHome}) {
-  const { isOpenSearchMobile } = useAppSelector(state => state.uiReducer)
+  const { isOpenSearchMobile } = useAppSelector(state => state.uiReducer);
   return (
     <>
       <Header atHome={atHome} />
@@ -20,6 +22,9 @@ function LayOut({children,atHome}) {
       <SideBar />
       <Overlay />
       <FilterMobile />
+      <InfoUser />
+      <ModalCpn  />
+      <Overlay2 />
       {/* <ScrollTop /> */}
       <div
         className={`${style.header__searchMobile} ${

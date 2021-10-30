@@ -1,0 +1,39 @@
+@import './../variant/varinant';
+@import './../mixin';
+
+.wrapModal {
+  @include box-style;
+  width: 400px;
+  max-width: 100%;
+  position: fixed;
+  top: -50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 50;
+  padding: 30px;
+  padding-top: 0;
+  transition: all ease-in 0.2s;
+  background: white;
+
+
+}
+
+.wrapModalAppear {
+  top: 50%;
+  transition: all ease-in 0.2s;
+
+}
+
+.headModal {
+  background: chocolate;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  padding-left: 0;
+  color: $main-color;
+  background: $second-color;
+
+  border-bottom: 1px solid lightgray;
+}
