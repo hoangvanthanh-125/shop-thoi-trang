@@ -10,7 +10,7 @@ Payment.propTypes = {};
 function Payment(props) {
   return (
     <div className={style.wrapPayment}>
-      <Grid container>
+      <Grid spacing={3} container>
         <Grid item sm={6} xs={12} md={6}>
           <PaymentForm />
         </Grid>

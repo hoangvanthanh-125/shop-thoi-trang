@@ -13,6 +13,7 @@ import { uiActions } from "../../redux/slice/uiSlice";
 import { CartType, Product } from "../../types";
 import { paymentAction } from "../../redux/slice/paymentSlice";
 import router from "next/router";
+import CartItem from "../../components/CartItem";
 
 function Cart({}) {
   const dispatch = useAppDispatch();
@@ -54,8 +55,7 @@ function Cart({}) {
       setListCartPayment(newList);
     }
   };
-  const handleChangeCheckbox = (product: CartType) => (e) => {
-    const { checked } = e.target;
+  const handleChangeCheckbox = (product: CartType, checked: boolean) => {
     const index = listCartPayment.findIndex((item) => item.id === product.id);
     if (checked === true) {
       if (index < 0) {
@@ -71,19 +71,13 @@ function Cart({}) {
     }
   };
   const handleClickPayment = () => {
-    if(listCartPayment.length === 0){
-      alert('Không có sản phẩm nào được chọn');
-    }
-    else{
+    if (listCartPayment.length === 0) {
+      alert("Không có sản phẩm nào được chọn");
+    } else {
       dispatch(paymentAction.fetchListPayment(listCartPayment));
-      router.push("/payment")
+      router.push("/payment");
     }
-  }
-  // useEffect(() => {
-  //   if (list) {
-  //     dispatch(cartActions.fetchAllCart(list));
-  //   }
-  // }, []);
+  };
   return listCart.length > 0 ? (
     <div className={style.cart}>
       <h2 className={style.cart__description}>Giỏ hàng của bạn</h2>
@@ -91,47 +85,13 @@ function Cart({}) {
         <Grid className={style.container__listCart} item md={9} sm={8} xs={12}>
           <div>
             {listCart.map((item) => (
-              <Card key={item.id} className={style.container__listCart__item}>
-                <div className={style.item__left}>
-                  <input
-                    type="checkbox"
-                    className={style.item__left__checkbox}
-                    onChange={handleChangeCheckbox(item)}
-                  />
-                  <img
-                    className={style.item__left__img}
-                    src={item?.cartItem.listImg[0]}
-                  />
-                  <div className={style.item__left__info}>
-                    <p className={style.name}>{item?.cartItem.name}</p>
-                    <p className={style.size}>size:19</p>
-                    <p className={style.priceMobile}>{item?.cartItem.price}</p>
-                  </div>
-                </div>
-                <div className={style.item__price}>
-                  <p className={style.title}>Giá</p>
-                  <p>{item?.cartItem.price}</p>
-                </div>
-                <div className={style.item__action}>
-                  <p className={style.title}>Số lượng</p>
-                  <div>
-                    {" "}
-                    <button onClick={() => updateCart(item, -1)}>-</button>
-                    {item?.quantity}
-                    <button onClick={() => updateCart(item, 1)}>+</button>
-                  </div>
-                </div>
-                <div className={style.item__total}>
-                  <p className={style.title}>Tổng cộng : </p>
-                  <p className={style.totalPrice}>
-                    {item.cartItem.price * item.quantity}
-                  </p>
-                </div>
-                <DeleteIcon
-                  onClick={() => hanldeDeleteCart(item)}
-                  className={style.iconDelete}
-                />
-              </Card>
+              <CartItem
+                updateCart={updateCart}
+                hanldeDeleteCart={hanldeDeleteCart}
+                handleChangeCheckbox={handleChangeCheckbox}
+                key={item.id}
+                item={item}
+              />
             ))}
           </div>
         </Grid>
@@ -139,7 +99,12 @@ function Cart({}) {
           <Card className={style.payment}>
             <p className={style.payment__title}>Tổng tiền</p>
             <p className={style.payment__price}>{totalMoney}</p>
-            <button onClick = {() => handleClickPayment()} className={style.payment__action}>Thanh toán ngay</button>
+            <button
+              onClick={() => handleClickPayment()}
+              className={style.payment__action}
+            >
+              Thanh toán ngay
+            </button>
           </Card>
         </Grid>
       </Grid>
@@ -147,7 +112,12 @@ function Cart({}) {
         <div className={style.payment__mobile__left}>
           <p>Tổng tiền : {totalMoney}</p>
         </div>
-        <div onClick={() => handleClickPayment()} className={style.payment__mobile__right}>Thanh toán</div>
+        <div
+          onClick={() => handleClickPayment()}
+          className={style.payment__mobile__right}
+        >
+          Thanh toán
+        </div>
       </div>
     </div>
   ) : (
@@ -159,17 +129,4 @@ function Cart({}) {
     </div>
   );
 }
-
-// export const getServerSideProps: GetServerSideProps = async (context) => {
-//   const list: CartType[] = listCart;
-//   //call Api
-//   try {
-//     const list: CartType[] = listCart;
-//   } catch (err) {}
-//   return {
-//     props: {
-//       list,
-//     },
-//   };
-// };
 export default Cart;

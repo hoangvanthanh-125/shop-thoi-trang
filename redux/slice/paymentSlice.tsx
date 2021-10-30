@@ -10,6 +10,19 @@ listPayment:[]
   name:'payment',
   initialState,
   reducers:{
+    updatePayment: (state, action) => {
+      const productUpdated = action.payload;
+      const { listPayment } = state;
+      const index = listPayment.findIndex((pro) => pro.id === productUpdated.id);
+      listPayment[index] = productUpdated;
+    },
+    deletePayment: (state, action) => {
+      const cartDeleted = action.payload;
+      state.listPayment = state.listPayment.filter(
+        (pro) => pro.id !== cartDeleted.id
+      );
+    },
+  
     fetchListPayment:(state,action) => {
       state.listPayment = action.payload;
     }
