@@ -1,0 +1,44 @@
+@import './../mixin';
+@import './../variant//varinant';
+
+.wrapHistory {
+  min-height: calc(100vh - #{$height-header});
+  position: relative;
+  padding: 20px;
+  @media (max-width:740px){
+    padding: 0;
+  }
+}
+
+.headTab {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media(max-width:740px) {
+    font-size: x-small !important;
+
+  }
+
+  .icon {
+    margin-right: 5px;
+  }
+}
+
+.noProduct {
+
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .title {
+    margin-top: 10px;
+  }
+
+  .button {
+    @include button-style();
+    margin-top: 10px;
+  }
+}

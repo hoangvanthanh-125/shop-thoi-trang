@@ -4,18 +4,17 @@ import style from "./../../styles/layout/Carousel.module.scss";
 import Slider from "react-slick";
 import Head from "next/head";
 import Link from "next/link";
-import ArrowRightIcon from '@material-ui/icons/ArrowRight';
-import snowStyle from './../../styles/layout/Snow.module.scss';
-import AcUnitIcon from '@material-ui/icons/AcUnit';
+import ArrowRightIcon from "@material-ui/icons/ArrowRight";
+import snowStyle from "./../../styles/layout/Snow.module.scss";
+import AcUnitIcon from "@material-ui/icons/AcUnit";
 export const renderSnow = () => {
-const snow = <div className={snowStyle.snow}></div>;
-const listSnow = [];
-for(let i = 0;i<200;i++){
- listSnow.push(snow);
-}
-return listSnow;
-
-}
+  const snow = <div className={snowStyle.snow}></div>;
+  const listSnow = [];
+  for (let i = 0; i < 200; i++) {
+    listSnow.push(snow);
+  }
+  return listSnow;
+};
 function Carousel(props) {
   const [currentUrl, setCurentUrl] = useState(listCarousel[0].url);
   const settings = {
@@ -61,26 +60,19 @@ function Carousel(props) {
               <h3 className={style.contact__slogan}>Xu hướng thời trang</h3>
               <h2 className={style.contact__nameshop}>Thành Shop</h2>
               <p className={style.contact__description}>
-                Một trong những lý do khiến thời trang trở thành một phần tất
-                yếu của cuộc sống bởi đây chính là lựa chọn hàng đầu để chúng ta
-                thể hiện ngôn ngữ riêng của chính mình. Cũng như con người, mỗi
-                thiết kế, mỗi phụ kiện hay mỗi phần của thời trang đều mang
-                những cá tính riêng, câu chuyện và một ý nghĩa riêng. Do đó, để
-                nói lên tiếng nói riêng của bản thân, nhiều người lựa chọn cho
-                mình thời trang như một cách thể hiện.
+                Một trong những lý do khiến thời trang trở thành một phần tất yếu của cuộc sống bởi
+                đây chính là lựa chọn hàng đầu để chúng ta thể hiện ngôn ngữ riêng của chính mình.
+                Cũng như con người, mỗi thiết kế, mỗi phụ kiện hay mỗi phần của thời trang đều mang
+                những cá tính riêng, câu chuyện và một ý nghĩa riêng. Do đó, để nói lên tiếng nói
+                riêng của bản thân, nhiều người lựa chọn cho mình thời trang như một cách thể hiện.
               </p>
               <Link href="/products" passHref>
-
                 <p className={style.contact__action}>Xem sản phẩm</p>
               </Link>
             </div>
             {/* <ArrowRightIcon className={style.iconSnow} /> */}
-            {
-             
-            }
-            <div className={snowStyle.container} >
-           {/* {renderSnow()} */}
-            </div>
+            {}
+            <div className={snowStyle.container}>{/* {renderSnow()} */}</div>
           </div>
         ))}
       </Slider>

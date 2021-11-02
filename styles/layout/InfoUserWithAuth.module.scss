@@ -46,3 +46,15 @@
     margin-left: 10px;
   }
 }
+.wrapNameUser{
+  cursor: default;
+  justify-content: space-between;
+  .nameUser{
+    display: flex;
+  justify-content: start;
+  align-items: center;
+  }
+  .editNameUser{
+    cursor: pointer;
+  }
+}

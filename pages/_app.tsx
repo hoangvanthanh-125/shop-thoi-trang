@@ -1,14 +1,10 @@
 import "../styles/globals.scss";
 import Header from "./../components/Header";
 import Footer from "./../components/Footer";
-import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import {
-  createTheme,
-  makeStyles,
-  ThemeProvider,
-} from "@material-ui/core/styles";
+import { createTheme, makeStyles, ThemeProvider } from "@material-ui/core/styles";
 import { useRouter } from "next/router";
 import { wrapper } from "../redux/store";
 import app, { AppContext } from "next/app";
@@ -19,7 +15,7 @@ import { cartActions } from "../redux/slice/cartSlice";
 import { listCart, listProducts } from "../fakeData";
 function MyApp({ Component, pageProps }) {
   const dispatch = useAppDispatch();
-  const {list} = pageProps;    
+  const { list } = pageProps;
   const theme = createTheme({
     breakpoints: {
       values: {
@@ -32,8 +28,9 @@ function MyApp({ Component, pageProps }) {
     },
   });
   const router = useRouter();
-  console.log(router.asPath);
   const atHome = router.asPath === "/";
+  const listNotLayOut = ["/auth"];
+  const isNotLayOut = listNotLayOut.includes(router.asPath);
   useEffect(() => {
     try {
       //all Api gio hang
@@ -45,9 +42,13 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <LayOut atHome={atHome}>
+        {!isNotLayOut ? (
+          <LayOut atHome={atHome}>
+            <Component {...pageProps} />
+          </LayOut>
+        ) : (
           <Component {...pageProps} />
-        </LayOut>
+        )}
       </ThemeProvider>
     </>
   );

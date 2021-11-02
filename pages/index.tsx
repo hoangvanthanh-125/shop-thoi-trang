@@ -5,7 +5,6 @@ import ProductCategory from "../components/productCategory";
 import styles from "../styles/Home.module.scss";
 import { useAppSelector } from "./../redux/hook";
 
-
 export default function Home() {
   return (
     <div className={styles.home}>
@@ -16,7 +15,6 @@ export default function Home() {
       </Head>
       <Carousel />
       <ProductCategory />
-      
     </div>
   );
 }

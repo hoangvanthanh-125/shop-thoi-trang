@@ -48,7 +48,7 @@ function HeaderRight(props) {
       <ul>
         {listHeader.map((data, index) => (
           <li
-            className={active(data.path) && style.itemHeaderActive}
+            className={active(data.path) ? style.itemHeaderActive:""}
             key={index}
           >
             <span onClick={() => hancleClick(data.name)}> {data.name}</span>

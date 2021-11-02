@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Grid } from "@material-ui/core";
 import PaymentForm from "./PaymentForm";
 import PaymentList from "./PaymentList";
-import style from './../../styles/layout/paymentComponent/payment.module.scss'
+import style from "./../../styles/layout/paymentComponent/payment.module.scss";
 
 Payment.propTypes = {};
 

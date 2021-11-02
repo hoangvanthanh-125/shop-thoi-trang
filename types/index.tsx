@@ -25,3 +25,11 @@ export type CartType = {
   quantity: number;
   size?:string
 };
+export interface OrderProduct{
+  orderId:any,
+  productOrder:CartType,
+  orderDate:Date | string,
+  requiredDate?:Date | string,
+  shippedDate?:Date | string,
+  status:"received" | "cancelled" |"delivering" ,
+}

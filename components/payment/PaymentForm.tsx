@@ -5,11 +5,20 @@ import style from "./../../styles/layout/paymentComponent/paymentForm.module.scs
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import LocalShippingIcon from "@material-ui/icons/LocalShipping";
+import { useAppDispatch, useAppSelector } from "../../redux/hook";
+import { OrderProduct } from "../../types";
+import { orderAction, orderReducer } from "../../redux/slice/orderSlice";
+import { useRouter } from "next/router";
 
 function PaymentForm(props) {
   const [listCity, setListCity] = useState([]);
   const [listHuyen, setListHuyen] = useState([]);
   const [listXa, setListXa] = useState([]);
+  const { listPayment } = useAppSelector((state) => state.paymentReducer);
+  const listOrder = useAppSelector((state) => state.orderReducer.listOrder);
+
+  const dispatch = useAppDispatch();
+  const router = useRouter();
   const schema = yup
     .object({
       name: yup.string().required("Vui lòng nhập họ tên"),
@@ -31,9 +40,9 @@ function PaymentForm(props) {
     .required();
 
   useEffect(() => {
-    fetch(
-      "https://raw.githubusercontent.com/phuockaito/KaitoShop.cf/master/src/data.json"
-    ).then((res) => res.json().then((city) => setListCity(city)));
+    fetch("https://raw.githubusercontent.com/phuockaito/KaitoShop.cf/master/src/data.json").then(
+      (res) => res.json().then((city) => setListCity(city))
+    );
   }, []);
 
   const {
@@ -60,6 +69,22 @@ function PaymentForm(props) {
   }, [huyen]);
   const onSubmit = handleSubmit((data) => {
     //goi apit post
+    const listOrder = listPayment.map((item) => {
+      const orderDate = new Date();
+      const orderYear = orderDate.getFullYear();
+      const orderMonth = orderDate.getMonth();
+      const orderDay = orderDate.getDay();
+      return {
+        orderDate,
+        productOrder: item,
+        orderId: Date.now(),
+        status: "delivering",
+        requiredDate: new Date(orderYear, orderMonth, orderDay + 3).toUTCString(),
+        shippedDate: new Date(orderYear, orderMonth, orderDay + 3).toUTCString(),
+      } as OrderProduct;
+    });
+    dispatch(orderAction.addListOrder(listOrder));
+    router.push("/history");
   });
   return (
     <form className={style.wrapForm} onSubmit={onSubmit}>
@@ -69,49 +94,24 @@ function PaymentForm(props) {
       </div>
 
       <div className={style.wrapField}>
-        <InputField
-          type="text"
-          placeholder="Họ và tên"
-          name="name"
-          control={control}
-        />
+        <InputField type="text" placeholder="Họ và tên" name="name" control={control} />
         <p className={style.notiError}>{errors.name?.message}</p>
       </div>
       <div className={style.wrapField}>
-        <InputField
-          type="text"
-          placeholder="Số điện thoại"
-          name="phone"
-          control={control}
-        />
+        <InputField type="text" placeholder="Số điện thoại" name="phone" control={control} />
         <p className={style.notiError}>{errors.phone?.message}</p>
       </div>
       <div className={style.wrapField}>
-        <SelectField
-          control={control}
-          name="city"
-          label="Tỉnh,thành phố"
-          options={listCity}
-        />
+        <SelectField control={control} name="city" label="Tỉnh,thành phố" options={listCity} />
         <p className={style.notiError}>{errors.city?.message}</p>
       </div>
 
       <div className={style.wrapField}>
-        <SelectField
-          control={control}
-          name="huyen"
-          label="Huyện"
-          options={listHuyen}
-        />
+        <SelectField control={control} name="huyen" label="Huyện" options={listHuyen} />
         <p className={style.notiError}>{errors.huyen?.message}</p>
       </div>
       <div className={style.wrapField}>
-        <SelectField
-          control={control}
-          name="xa"
-          label="Xã,phường,thị trấn"
-          options={listXa}
-        />
+        <SelectField control={control} name="xa" label="Xã,phường,thị trấn" options={listXa} />
         <p className={style.notiError}>{errors.xa?.message}</p>
       </div>
       <div className={style.wrapField}>

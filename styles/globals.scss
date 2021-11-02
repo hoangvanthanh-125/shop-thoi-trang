@@ -40,3 +40,26 @@ ul,p,h3,h1,h2,h4,h5,h6{
   margin: 0;
   padding: 0;
 }
+.authRorate{
+  animation: rorate 0.3s ease-in;
+}
+.authRorate2{
+  animation: rorate2 0.3s ease-in;
+}
+@keyframes rorate{
+  0%{
+    transform: rotateY(0deg);
+  }
+  100%{
+    transform: rotateY(180deg);
+  }
+}
+@keyframes rorate2{
+  0%{
+    transform: rotateY(180deg);
+  }
+  
+  100%{
+    transform: rotateY(0deg);
+  }
+}

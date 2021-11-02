@@ -1,5 +1,6 @@
 import { Product } from "../types";
 
+
 export const listHeader = [
   {
     id: 1,
@@ -46,56 +47,56 @@ export const listDanhmuc = [
   {
     id:0,
     name:'Tất cả sản phẩm',
-    url:'http://hocmay.vn/wp-content/uploads/2017/03/chat-luong-cua-san-pham-thoi-trang-hieu-dung-de-mua-sam-hieu-qua-7.jpg',
+    url:'/allProduct.jpg',
     path:'all'
   },
   {
     id: 1,
     name: "Thời trang nam",
-    url: "https://st.app1h.com/uploads/images/company72/images/c%C3%A1c-ki%E1%BB%83u-%C3%A1o-thun-nam-kinh-%C4%91i%E1%BB%83n-ph%E1%BA%A3i-c%C3%B3-trong-t%E1%BB%A7-%C4%91%E1%BB%93-c%E1%BB%A7a-%C4%91%C3%A0n-%C3%B4ng.jpg",
+    url: "/thoitrangnam.jpg",
     path:"thoi-trang-nam"
   },
   {
     id: 2,
     name: "Thời trang nữ",
-    url: "https://kayo.vn/wp-content/uploads/2021/06/Ao-thun-nu-trang-tay-ngan-1-400x533.jpg",
+    url: "/thoitrangnu.jpg",
     path:'thoi-trang-nu'
 
   },
   {
     id: 8,
     name: "Đồ đôi",
-    url: "https://cf.shopee.vn/file/0c76ef132ed6a929ff0ed41ae83a333f",
+    url: "/dodoi.jpg",
     path:'do-doi'
   },
   {
     id: 3,
     name: "Áo Khoác",
-    url: "https://media.loveitopcdn.com/22179/ao-khoac-nu-han-quoc-ak314y.jpg",
+    url: "/aokhoac.jpg",
     path:'ao-khoac'
   },
   {
     id: 4,
     name: "Áo sơ mi",
-    url: "https://thamdangstore.vn/Content/Images/FileUpload/userfiles/images/cac-kieu-ao-so-mi-nu-de-thuong.jpg",
+    url: "/aosomi.jpg",
     path:"ao-so-mi"
   },
   {
     id: 5,
     name: "Quần jeans",
-    url: "https://xuongmaydosi.com/wp-content/uploads/2019/04/Nam-gi%E1%BB%9Bi-m%E1%BA%B7c-qu%E1%BA%A7n-Jean-nh%C6%B0-th%E1%BA%BF-n%C3%A0o-cho-%C4%91%E1%BA%B9p.jpg",
+    url: "/quanjean.jpg",
     path:"quan-jeans"
   },
   {
     id: 6,
     name: "Áo thun",
-    url: "https://drake.vn/image/catalog/H%C3%ACnh%20content/ao-thun-converse/ao-thun-converse-7.jpg",
+    url: "aothun.jpg",
     path:'ao-thun'
   },
   {
     id: 17,
     name: "Đang sale",
-    url: "https://bizweb.dktcdn.net/thumb/large/100/422/489/products/01-dfa1b4cd-8cd2-451c-b78a-6b4b4028feb1.jpg?v=1617633095000",
+    url: "dangsale.jpg",
     path:'dang-sale'
   },
 ];

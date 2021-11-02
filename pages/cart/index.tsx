@@ -122,10 +122,11 @@ function Cart({}) {
     </div>
   ) : (
     <div className={style.noCart}>
+      <img src='/empty.png' style={{width:100,height:100}} />
       <h2 className={style.noCart__title}>
         Không có sản phẩm nào trong giỏ hàng
       </h2>
-      <button className={style.noCart__button}>Tiếp tục mua sắm</button>
+      <button onClick={() => router.push('/products')} className={style.noCart__button}>Tiếp tục mua sắm</button>
     </div>
   );
 }

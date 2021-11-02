@@ -6,7 +6,7 @@
   width: 400px;
   max-width: 100%;
   position: fixed;
-  top: -50%;
+  top: -100%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 50;
@@ -14,6 +14,7 @@
   padding-top: 0;
   transition: all ease-in 0.2s;
   background: white;
+  opacity: 0;
 
 
 }
@@ -21,6 +22,7 @@
 .wrapModalAppear {
   top: 50%;
   transition: all ease-in 0.2s;
+  opacity: 1;
 
 }
 
@@ -36,4 +38,7 @@
   background: $second-color;
 
   border-bottom: 1px solid lightgray;
+  .clearIcon{
+    cursor: pointer;
+  }
 }
