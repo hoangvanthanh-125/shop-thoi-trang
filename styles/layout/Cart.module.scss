@@ -77,6 +77,15 @@
       display: flex;
       align-items: flex-start;
       justify-content: flex-start;
+      .wrapInfoProduct{
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        cursor: pointer;
+        &:hover{
+          opacity: 0.8;
+        }
+      }
 
       &__checkbox {
         color: $main-color !important;

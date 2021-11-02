@@ -7,10 +7,13 @@ import { renderSnow } from "../../components/Carousel";
 import snowStyle from "./../../styles/layout/Snow.module.scss";
 import FormRegister from "../../components/formRegister";
 import FormLogin from "../../components/formLogin/FormLogin";
+import { useRouter } from "next/router";
 
 function Auth(props) {
-  const hi = useRef();
-  const [auth, setAuth] = useState("");
+  const router = useRouter();
+  const { type } = router.query;
+  const [auth, setAuth] = useState(type || "");
+
   const handleChangeAuth = () => {
     if (auth === "login") {
       setAuth("register");
@@ -55,9 +58,7 @@ function Auth(props) {
           </div>
           <h2 className={style.title}>{auth === "register" ? "Đăng kí" : "Đăng nhập"}</h2>
         </div>
-        <div ref={hi} className={style.form}>
-          {auth === "register" ? <FormRegister /> : <FormLogin />}
-        </div>
+        <div className={style.form}>{auth === "register" ? <FormRegister /> : <FormLogin />}</div>
       </div>
       <div className={snowStyle.container}>{renderSnow()}</div>
     </div>

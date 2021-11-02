@@ -6,7 +6,7 @@ import style from "./../../styles/layout/infoUserNotAuth.module.scss";
 import UserInfoNotAuth from "./UserInfoNotAuth";
 import UserInfoWithAuth from "./UserInfoWithAuth";
 function InfoUser(props) {
-  const [isAuth, setAuth] = useState(true);
+  const [isAuth, setAuth] = useState(false);
   const { isOpenUserInfo } = useAppSelector((state) => state.uiReducer);
   const dispatch = useAppDispatch();
   const handleClickCloseUserInfo = () => {
@@ -14,19 +14,12 @@ function InfoUser(props) {
     dispatch(uiActions.closeUserInfo());
   };
   return (
-    <div
-      className={`${style.infoContainer} ${
-        isOpenUserInfo && style.infoContainerAppear
-      }`}
-    >
+    <div className={`${style.infoContainer} ${isOpenUserInfo && style.infoContainerAppear}`}>
       <div className={style.head}>
         <h2>{isAuth ? "Thông tin " : "Xác thực"}</h2>
-        <ClearIcon
-          onClick={() => handleClickCloseUserInfo()}
-          className={style.clearIcon}
-        />
+        <ClearIcon onClick={() => handleClickCloseUserInfo()} className={style.clearIcon} />
       </div>
-     {!isAuth ?  <UserInfoNotAuth /> :  <UserInfoWithAuth />}
+      {!isAuth ? <UserInfoNotAuth /> : <UserInfoWithAuth />}
     </div>
   );
 }

@@ -9,16 +9,21 @@ import { useAppDispatch, useAppSelector } from "../../redux/hook";
 import { OrderProduct } from "../../types";
 import { orderAction, orderReducer } from "../../redux/slice/orderSlice";
 import { useRouter } from "next/router";
+import { ToastFuncSuccess } from "../../common/ToastFuncNoti";
 
 function PaymentForm(props) {
+  const router = useRouter();
+  const { listPayment } = useAppSelector((state) => state.paymentReducer);
+  if (listPayment.length === 0) {
+    router.push("/");
+  }
   const [listCity, setListCity] = useState([]);
   const [listHuyen, setListHuyen] = useState([]);
   const [listXa, setListXa] = useState([]);
-  const { listPayment } = useAppSelector((state) => state.paymentReducer);
+
   const listOrder = useAppSelector((state) => state.orderReducer.listOrder);
 
   const dispatch = useAppDispatch();
-  const router = useRouter();
   const schema = yup
     .object({
       name: yup.string().required("Vui lòng nhập họ tên"),
@@ -85,6 +90,7 @@ function PaymentForm(props) {
     });
     dispatch(orderAction.addListOrder(listOrder));
     router.push("/history");
+    ToastFuncSuccess("Đặt hàng thành công");
   });
   return (
     <form className={style.wrapForm} onSubmit={onSubmit}>

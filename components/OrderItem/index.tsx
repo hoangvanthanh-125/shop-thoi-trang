@@ -4,6 +4,7 @@ import { CartType, OrderProduct } from "../../types";
 import style from "./../../styles/layout/Cart.module.scss";
 import DeleteIcon from "@material-ui/icons/Delete";
 import style2 from "./../../styles/layout/OrderItem.module.scss";
+import { useRouter } from "next/router";
 
 interface OrderProps {
   item: CartType;
@@ -21,6 +22,7 @@ function OrderItem({
   orderProduct,
   handleCancelled,
 }: OrderProps) {
+  const router = useRouter();
   const handleClickButton = () => {
     if (handleAction) {
       handleAction(orderProduct);
@@ -31,20 +33,20 @@ function OrderItem({
       handleCancelled(orderProduct);
     }
   };
+  const handleClickMovetoDetailProduct = () => {
+    router.push(`/products/${item.cartItem.id}/${item.cartItem.name}`);
+  };
   return (
     <Card key={item.id} className={style2.orderItem}>
-      <div
-        className={`${style.container__listCart__item} ${style2.infoProduct}`}
-      >
+      <div className={`${style.container__listCart__item} ${style2.infoProduct}`}>
         <div className={style.item__left}>
-          <img
-            className={style.item__left__img}
-            src={item?.cartItem.listImg[0]}
-          />
-          <div className={style.item__left__info}>
-            <p className={style.name}>{item?.cartItem.name}</p>
-            <p className={style.size}>size:19</p>
-            <p className={style.priceMobile}>{item?.cartItem.price}</p>
+          <div onClick={() => handleClickMovetoDetailProduct()} className={style.wrapInfoProduct}>
+            <img className={style.item__left__img} src={item?.cartItem.listImg[0]} />
+            <div className={style.item__left__info}>
+              <p className={style.name}>{item?.cartItem.name}</p>
+              <p className={style.size}>size:19</p>
+              <p className={style.priceMobile}>{item?.cartItem.price}</p>
+            </div>
           </div>
         </div>
         <div className={style.item__price}>
@@ -59,15 +61,10 @@ function OrderItem({
       <div className={style2.wrapActionTotal}>
         <div className={style2.total}>
           <p className={style.title}>Tổng cộng : </p>
-          <p className={style.totalPrice}>
-            {item.cartItem.price * item.quantity}
-          </p>
+          <p className={style.totalPrice}>{item.cartItem.price * item.quantity}</p>
         </div>
         <div className={style2.action}>
-          <button
-            onClick={() => handleClickButton()}
-            className={style2.buttonAction}
-          >
+          <button onClick={() => handleClickButton()} className={style2.buttonAction}>
             {labelButton}
           </button>
           {status === "delivering" && (

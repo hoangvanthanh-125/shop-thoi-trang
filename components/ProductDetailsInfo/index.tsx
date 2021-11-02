@@ -6,6 +6,9 @@ import { useAppDispatch } from "../../redux/hook";
 import { addCartAction } from "../../redux/actions/cartActions";
 import { paymentAction } from "../../redux/slice/paymentSlice";
 import router from "next/router";
+import { ToastFuncEror, ToastFuncSuccess } from "../../common/ToastFuncNoti";
+import { toast } from "react-toastify";
+
 interface PropsType {
   product: Product;
 }
@@ -21,10 +24,8 @@ function ProductDetailInfo({ product }: PropsType) {
   };
   const handleCickBuy = () => {
     if (!size) {
-      
-      alert("Vui lòng chọn size");
-    }
-    else{
+      toast.warning("Vui lòng chọn size");
+    } else {
       const newCartPayment: CartType = {
         cartItem: product,
         size,
@@ -32,13 +33,12 @@ function ProductDetailInfo({ product }: PropsType) {
         id: Date.now().toString(),
       };
       dispatch(paymentAction.fetchListPayment([newCartPayment]));
-      router.push("/payment")
-      
+      router.push("/payment");
     }
   };
-  const handleClickAddCart = async() => {
+  const handleClickAddCart = async () => {
     if (!size) {
-      alert("Vui lòng chọn size");
+      toast.warning("Vui lòng chọn size");
     } else {
       const newCart: CartType = {
         cartItem: product,
@@ -46,14 +46,12 @@ function ProductDetailInfo({ product }: PropsType) {
         quantity,
         id: Date.now().toString(),
       };
-      try{
+      try {
         dispatch(await addCartAction(newCart));
-        alert('Thêm thành công');
-
-      }catch(err){
-        alert(err)
+        ToastFuncSuccess("Thêm thành công");
+      } catch (err) {
+        toast.error(err);
       }
-
     }
   };
   return (
@@ -64,11 +62,7 @@ function ProductDetailInfo({ product }: PropsType) {
       <div className={style.parameter}>
         <div className={`${style.rating} ${style.parameter__item}`}>
           <span>{stars[0]} </span>
-          <Rating
-            className={style.rating__icon}
-            name="hover-feedback"
-            value={stars[0]}
-          />
+          <Rating className={style.rating__icon} name="hover-feedback" value={stars[0]} />
         </div>
         <div className={style.parameter__item}>10 đánh giá</div>
         <div className={style.parameter__item}>10 đã bán</div>
@@ -76,9 +70,7 @@ function ProductDetailInfo({ product }: PropsType) {
       <div className={style.price}>
         {sale > 0 && <h2 className={`${style.price__real}`}>{price}</h2>}
 
-        <h2 className={style.price__sale}>
-          {Math.trunc(price - price * sale)}
-        </h2>
+        <h2 className={style.price__sale}>{Math.trunc(price - price * sale)}</h2>
       </div>
       <div className={style.size}>
         <p className={style.size__title}>Kích thước : </p>
@@ -86,9 +78,7 @@ function ProductDetailInfo({ product }: PropsType) {
           {listSize.map((item, index) => (
             <div
               onClick={() => setSize(item)}
-              className={`${style.size__item} ${
-                item === size && style.size__itemActive
-              }`}
+              className={`${style.size__item} ${item === size && style.size__itemActive}`}
               key={index}
             >
               {item}
@@ -99,17 +89,11 @@ function ProductDetailInfo({ product }: PropsType) {
       <div className={style.quantity}>
         <p className={style.quantity__title}>Số lượng : </p>
         <div className={style.wrapChangeQuantity}>
-          <div
-            onClick={() => handleChangeQuantity(-1)}
-            className={style.wrapChangeQuantity__item}
-          >
+          <div onClick={() => handleChangeQuantity(-1)} className={style.wrapChangeQuantity__item}>
             -
           </div>
           <div className={style.wrapChangeQuantity__item}>{quantity}</div>
-          <div
-            onClick={() => handleChangeQuantity(1)}
-            className={style.wrapChangeQuantity__item}
-          >
+          <div onClick={() => handleChangeQuantity(1)} className={style.wrapChangeQuantity__item}>
             +
           </div>
         </div>
@@ -118,10 +102,7 @@ function ProductDetailInfo({ product }: PropsType) {
         <div onClick={() => handleCickBuy()} className={style.action__payment}>
           Mua ngay
         </div>
-        <div
-          onClick={() => handleClickAddCart()}
-          className={style.action__addCart}
-        >
+        <div onClick={() => handleClickAddCart()} className={style.action__addCart}>
           Thêm vào giỏ hàng
         </div>
       </div>

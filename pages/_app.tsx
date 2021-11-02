@@ -1,18 +1,20 @@
-import "../styles/globals.scss";
-import Header from "./../components/Header";
-import Footer from "./../components/Footer";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-
-import { createTheme, makeStyles, ThemeProvider } from "@material-ui/core/styles";
-import { useRouter } from "next/router";
-import { wrapper } from "../redux/store";
+import { createTheme, ThemeProvider } from "@material-ui/core/styles";
 import app, { AppContext } from "next/app";
-import LayOut from "../components/layout";
-import { useAppDispatch, useAppSelector } from "../redux/hook";
+import { useRouter } from "next/router";
+import NProgress from "nprogress";
 import { useEffect } from "react";
+import { ToastContainer } from "react-toastify";
+import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
+import LayOut from "../components/layout";
+import { listCart } from "../fakeData";
+import { useAppDispatch } from "../redux/hook";
 import { cartActions } from "../redux/slice/cartSlice";
-import { listCart, listProducts } from "../fakeData";
+import { wrapper } from "../redux/store";
+import "../styles/globals.scss";
+import "../styles/nprogress.scss";
+import "react-toastify/dist/ReactToastify.css";
+
 function MyApp({ Component, pageProps }) {
   const dispatch = useAppDispatch();
   const { list } = pageProps;
@@ -30,7 +32,7 @@ function MyApp({ Component, pageProps }) {
   const router = useRouter();
   const atHome = router.asPath === "/";
   const listNotLayOut = ["/auth"];
-  const isNotLayOut = listNotLayOut.includes(router.asPath);
+  const isNotLayOut = listNotLayOut.includes(router.pathname);
   useEffect(() => {
     try {
       //all Api gio hang
@@ -38,6 +40,17 @@ function MyApp({ Component, pageProps }) {
     } catch (err) {
       alert(err.message);
     }
+  }, []);
+  useEffect(() => {
+    router.events.on("routeChangeStart", (url) => {
+      NProgress.start();
+    });
+    router.events.on("routeChangeComplete", (url) => {
+      NProgress.done();
+    });
+    router.events.on("routeChangeError", (url) => {
+      NProgress.done();
+    });
   }, []);
   return (
     <>
@@ -50,6 +63,15 @@ function MyApp({ Component, pageProps }) {
           <Component {...pageProps} />
         )}
       </ThemeProvider>
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        draggable={false}
+        closeOnClick
+        pauseOnHover
+      />
     </>
   );
 }
