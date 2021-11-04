@@ -14,6 +14,7 @@ import { wrapper } from "../redux/store";
 import "../styles/globals.scss";
 import "../styles/nprogress.scss";
 import "react-toastify/dist/ReactToastify.css";
+import CssBaseline from "@mui/material/CssBaseline";
 
 function MyApp({ Component, pageProps }) {
   const dispatch = useAppDispatch();
@@ -33,6 +34,12 @@ function MyApp({ Component, pageProps }) {
   const atHome = router.asPath === "/";
   const listNotLayOut = ["/auth"];
   const isNotLayOut = listNotLayOut.includes(router.pathname);
+  useEffect(() => {
+    const jssStyles = document.querySelector("#jss-server-side");
+    if (jssStyles) {
+      jssStyles.parentElement.removeChild(jssStyles);
+    }
+  }, []);
   useEffect(() => {
     try {
       //all Api gio hang

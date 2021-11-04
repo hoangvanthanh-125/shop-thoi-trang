@@ -8,6 +8,7 @@ import { paymentAction } from "../../redux/slice/paymentSlice";
 import router from "next/router";
 import { ToastFuncEror, ToastFuncSuccess } from "../../common/ToastFuncNoti";
 import { toast } from "react-toastify";
+import { showPrice } from "../../common/customPrice";
 
 interface PropsType {
   product: Product;
@@ -68,9 +69,9 @@ function ProductDetailInfo({ product }: PropsType) {
         <div className={style.parameter__item}>10 đã bán</div>
       </div>
       <div className={style.price}>
-        {sale > 0 && <h2 className={`${style.price__real}`}>{price}</h2>}
+        {sale > 0 && <h2 className={`${style.price__real}`}>{showPrice(price)}</h2>}
 
-        <h2 className={style.price__sale}>{Math.trunc(price - price * sale)}</h2>
+        <h2 className={style.price__sale}>{showPrice(Math.trunc(price - price * sale))}</h2>
       </div>
       <div className={style.size}>
         <p className={style.size__title}>Kích thước : </p>

@@ -1,19 +1,14 @@
-import React, { useEffect, useState } from "react";
-import style from "./../../styles/layout/Cart.module.scss";
-import { listCart } from "./../../fakeData/index";
-import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import { Card, Grid } from "@material-ui/core";
-import Checkbox from "@material-ui/core/Checkbox";
-import DeleteIcon from "@material-ui/icons/Delete";
-import { useAppDispatch, useAppSelector } from "../../redux/hook";
-import { unwrapResult } from "@reduxjs/toolkit";
-import { fetchAllListCart, updateCart } from "../../redux/actions/cartActions";
-import { cartActions } from "../../redux/slice/cartSlice";
-import { uiActions } from "../../redux/slice/uiSlice";
-import { CartType, Product } from "../../types";
-import { paymentAction } from "../../redux/slice/paymentSlice";
 import router from "next/router";
+import React, { useState } from "react";
 import CartItem from "../../components/CartItem";
+import { useAppDispatch, useAppSelector } from "../../redux/hook";
+import { cartActions } from "../../redux/slice/cartSlice";
+import { paymentAction } from "../../redux/slice/paymentSlice";
+import { CartType } from "../../types";
+import style from "./../../styles/layout/Cart.module.scss";
+import Head from "next/head";
+import { showPrice } from "../../common/customPrice";
 
 function Cart({}) {
   const dispatch = useAppDispatch();
@@ -63,9 +58,7 @@ function Cart({}) {
       }
     } else {
       if (index >= 0) {
-        const newListPayment = listCartPayment.filter(
-          (item) => item.id !== product.id
-        );
+        const newListPayment = listCartPayment.filter((item) => item.id !== product.id);
         setListCartPayment(newListPayment);
       }
     }
@@ -80,6 +73,9 @@ function Cart({}) {
   };
   return listCart.length > 0 ? (
     <div className={style.cart}>
+      <Head>
+        <title>Giỏ hàng</title>
+      </Head>
       <h2 className={style.cart__description}>Giỏ hàng của bạn</h2>
       <Grid container spacing={3} className={style.cart__container}>
         <Grid className={style.container__listCart} item md={9} sm={8} xs={12}>
@@ -97,12 +93,9 @@ function Cart({}) {
         </Grid>
         <Grid className={style.container__payment} item md={3} sm={4} xs={12}>
           <Card className={style.payment}>
-            <p className={style.payment__title}>Tổng tiền</p>
-            <p className={style.payment__price}>{totalMoney}</p>
-            <button
-              onClick={() => handleClickPayment()}
-              className={style.payment__action}
-            >
+            <p className={`${style.payment__title} `}>Tổng tiền</p>
+            <p className={`${style.payment__price} ${style.price}`}>{showPrice(totalMoney)}</p>
+            <button onClick={() => handleClickPayment()} className={style.payment__action}>
               Thanh toán ngay
             </button>
           </Card>
@@ -110,23 +103,22 @@ function Cart({}) {
       </Grid>
       <div className={style.payment__mobile}>
         <div className={style.payment__mobile__left}>
-          <p>Tổng tiền : {totalMoney}</p>
+          <p>
+            Tổng tiền : <span className={style.price}>{showPrice(totalMoney)}</span>
+          </p>
         </div>
-        <div
-          onClick={() => handleClickPayment()}
-          className={style.payment__mobile__right}
-        >
+        <div onClick={() => handleClickPayment()} className={style.payment__mobile__right}>
           Thanh toán
         </div>
       </div>
     </div>
   ) : (
     <div className={style.noCart}>
-      <img src='/empty.png' style={{width:100,height:100}} />
-      <h2 className={style.noCart__title}>
-        Không có sản phẩm nào trong giỏ hàng
-      </h2>
-      <button onClick={() => router.push('/products')} className={style.noCart__button}>Tiếp tục mua sắm</button>
+      <img src="/empty.png" style={{ width: 100, height: 100 }} />
+      <h2 className={style.noCart__title}>Không có sản phẩm nào trong giỏ hàng</h2>
+      <button onClick={() => router.push("/products")} className={style.noCart__button}>
+        Tiếp tục mua sắm
+      </button>
     </div>
   );
 }

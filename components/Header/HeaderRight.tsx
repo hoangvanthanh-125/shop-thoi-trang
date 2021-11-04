@@ -12,6 +12,7 @@ import Badge from "@material-ui/core/Badge";
 import Link from "next/link";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import { Avatar } from "@material-ui/core";
+import { showPrice } from "../../common/customPrice";
 function HeaderRight(props) {
   const { isOpenSearchMobile } = useAppSelector((state) => state.uiReducer);
   const router = useRouter();
@@ -47,19 +48,13 @@ function HeaderRight(props) {
     <div className={style.header__right}>
       <ul>
         {listHeader.map((data, index) => (
-          <li
-            className={active(data.path) ? style.itemHeaderActive:""}
-            key={index}
-          >
+          <li className={active(data.path) ? style.itemHeaderActive : ""} key={index}>
             <span onClick={() => hancleClick(data.name)}> {data.name}</span>
             <div className={style.listDanhmuc}>
               {listDanhmuc.map((item, index) => (
                 <Link key={index} href={`/products?type=${item.path}`} passHref>
                   <span
-                    className={`${
-                      asPath == `/products?type=${item.path}` &&
-                      style.danhmucActive
-                    }`}
+                    className={`${asPath == `/products?type=${item.path}` && style.danhmucActive}`}
                   >
                     {item.name}
                   </span>
@@ -71,9 +66,7 @@ function HeaderRight(props) {
       </ul>
       <SearchIcon
         onClick={() => handleClickOpenSearch()}
-        className={`${style.iconSearch} ${
-          isOpenSearchMobile && style.iconSearchAppear
-        }`}
+        className={`${style.iconSearch} ${isOpenSearchMobile && style.iconSearchAppear}`}
       />
       <div className={style.wrapcart}>
         <div
@@ -97,18 +90,14 @@ function HeaderRight(props) {
                     <img src={item?.cartItem.listImg[0]} alt="" />
                     <div className={style.wrapInfoProduct}>
                       <div className={style.wrapNamePrice}>
-                        <span className={style.name}>
-                          {item?.cartItem?.name}
-                        </span>
-                        <span className={style.price}>
-                          {item?.cartItem.price}
+                        <span className={style.name}>{item?.cartItem?.name}</span>
+                        <span style={{ color: "red" }} className={style.price}>
+                          {showPrice(item?.cartItem.price)}
                         </span>
                       </div>
                       <p className={style.size}>
                         Size : {item?.size}{" "}
-                        <span className={style.quantity}>
-                          ({item.quantity} sản phẩm )
-                        </span>
+                        <span className={style.quantity}>({item.quantity} sản phẩm )</span>
                       </p>
                     </div>
                   </div>
@@ -116,7 +105,7 @@ function HeaderRight(props) {
               </div>
               <div className={style.listCart__footer}>
                 <span>{totalQuantityProduct} thêm vào giỏ hàng</span>
-                <button>Xem giỏ hàng</button>
+                <button onClick={() => router.push("/cart")}>Xem giỏ hàng</button>
               </div>
             </div>
           ) : (
@@ -124,12 +113,9 @@ function HeaderRight(props) {
           )}
         </div>
       </div>
-     <div onClick={() => handleClickOpenInfoUser()}>
-     <Avatar
-        style={{ width: 30, height: 30, cursor: "pointer" }}
-        src=""
-      ></Avatar>
-     </div>
+      <div onClick={() => handleClickOpenInfoUser()}>
+        <Avatar style={{ width: 30, height: 30, cursor: "pointer" }} src=""></Avatar>
+      </div>
     </div>
   );
 }

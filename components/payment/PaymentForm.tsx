@@ -14,9 +14,6 @@ import { ToastFuncSuccess } from "../../common/ToastFuncNoti";
 function PaymentForm(props) {
   const router = useRouter();
   const { listPayment } = useAppSelector((state) => state.paymentReducer);
-  if (listPayment.length === 0) {
-    router.push("/");
-  }
   const [listCity, setListCity] = useState([]);
   const [listHuyen, setListHuyen] = useState([]);
   const [listXa, setListXa] = useState([]);

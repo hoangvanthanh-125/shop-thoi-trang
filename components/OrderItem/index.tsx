@@ -5,6 +5,7 @@ import style from "./../../styles/layout/Cart.module.scss";
 import DeleteIcon from "@material-ui/icons/Delete";
 import style2 from "./../../styles/layout/OrderItem.module.scss";
 import { useRouter } from "next/router";
+import { showPrice } from "../../common/customPrice";
 
 interface OrderProps {
   item: CartType;
@@ -45,7 +46,6 @@ function OrderItem({
             <div className={style.item__left__info}>
               <p className={style.name}>{item?.cartItem.name}</p>
               <p className={style.size}>size:19</p>
-              <p className={style.priceMobile}>{item?.cartItem.price}</p>
             </div>
           </div>
         </div>

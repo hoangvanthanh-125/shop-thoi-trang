@@ -5,6 +5,7 @@ import Rating from "@material-ui/lab/Rating";
 import { Product } from "../../types";
 import Link from "next/link";
 import { StarsTwoTone } from "@material-ui/icons";
+import { showPrice } from "../../common/customPrice";
 type PropsType = {
   product: Product;
 };
@@ -31,8 +32,8 @@ function ProductItem({ product }: PropsType) {
         </div>
         <p className={style.nameProduct}>{name}</p>
         <div className={style.price}>
-          <p className={style.price__real}>{price}đ</p>
-          {sale > 0 && <p className={style.price__sale}>{price}đ</p>}
+          <p className={style.price__real}>{showPrice(price)}</p>
+          {sale > 0 && <p className={style.price__sale}>{showPrice(price)}</p>}
         </div>
         {sale > 0 && <div className={style.sale}></div>}
         {sale > 0 && <span className={style.sale__number}>{sale * 100}%</span>}
