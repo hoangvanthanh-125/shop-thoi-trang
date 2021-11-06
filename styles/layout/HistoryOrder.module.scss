@@ -5,10 +5,16 @@
   min-height: calc(100vh - #{$height-header});
   position: relative;
   padding: 20px;
+ 
   @media (max-width:740px){
     padding: 0;
   }
 }
+.title{
+  text-align: center;
+  padding: 20px;
+}
+
 
 .headTab {
   display: flex;
@@ -36,6 +42,7 @@
   .title {
     margin-top: 10px;
   }
+  
 
   .button {
     @include button-style();

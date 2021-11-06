@@ -18,9 +18,7 @@ function HistoryOrder(props) {
   const dispatch = useAppDispatch();
   const router = useRouter();
 
-  const listDelivering = listOrder.filter(
-    (item) => item.status === "delivering"
-  );
+  const listDelivering = listOrder.filter((item) => item.status === "delivering");
 
   const listReceived = listOrder.filter((item) => item.status === "received");
   const listCancelled = listOrder.filter((item) => item.status === "cancelled");
@@ -64,7 +62,9 @@ function HistoryOrder(props) {
       <div className={style.noProduct}>
         <img src="/empty.png" style={{ width: 100, height: 100 }} />
         <h2 className={style.title}>Không có gì để hiển thị</h2>
-        <button onClick={() => router.push('/products')} className={style.button}>Tiếp tục mua sắm</button>
+        <button onClick={() => router.push("/products")} className={style.button}>
+          Tiếp tục mua sắm
+        </button>
       </div>
     );
   };
@@ -131,7 +131,8 @@ function HistoryOrder(props) {
   };
   return (
     <div className={style.wrapHistory}>
-      <Grid item xs={12} sm={12} md={12} lg={12}>
+      <h2 className={style.title}>Lịch sử mua hàng</h2>
+      <Grid className={style.body} item xs={12} sm={12} md={12} lg={12}>
         <Tabs
           value={value}
           onChange={handleChange}
@@ -149,19 +150,13 @@ function HistoryOrder(props) {
       <Grid item md={12} xs={12} sm={12}>
         <SwipeableViews index={value} onChangeIndex={handleChangeIndex}>
           <TabPanel value={value} index={0}>
-            {listDelivering.length > 0
-              ? renderListDelivering()
-              : renderEmptyOrder()}
+            {listDelivering.length > 0 ? renderListDelivering() : renderEmptyOrder()}
           </TabPanel>
           <TabPanel value={value} index={1}>
-            {listReceived.length > 0
-              ? renderListReceived()
-              : renderEmptyOrder()}
+            {listReceived.length > 0 ? renderListReceived() : renderEmptyOrder()}
           </TabPanel>
           <TabPanel value={value} index={2}>
-            {listCancelled.length > 0
-              ? renderListCancelled()
-              : renderEmptyOrder()}
+            {listCancelled.length > 0 ? renderListCancelled() : renderEmptyOrder()}
           </TabPanel>
         </SwipeableViews>
       </Grid>
