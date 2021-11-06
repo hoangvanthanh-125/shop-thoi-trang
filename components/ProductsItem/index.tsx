@@ -33,7 +33,7 @@ function ProductItem({ product }: PropsType) {
         <p className={style.nameProduct}>{name}</p>
         <div className={style.price}>
           <p className={style.price__real}>{showPrice(price)}</p>
-          {sale > 0 && <p className={style.price__sale}>{showPrice(price)}</p>}
+          {sale > 0 && <p className={style.price__sale}>{showPrice(price * (1 - sale))}</p>}
         </div>
         {sale > 0 && <div className={style.sale}></div>}
         {sale > 0 && <span className={style.sale__number}>{sale * 100}%</span>}

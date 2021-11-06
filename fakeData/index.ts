@@ -114,7 +114,7 @@ export const listProducts:Product[] = [
   {
     id: "1",
     name: "Áo sơ mi",
-    price: 100000000000,
+    price: 100000,
     // listImg?: string;
     listSize: ["XS", "M", "L"],
     stars: [],

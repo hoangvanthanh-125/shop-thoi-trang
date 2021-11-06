@@ -8,6 +8,7 @@ import { listHeader } from "../../fakeData";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import HeaderRight from "./HeaderRight";
+import router from "next/router";
 interface PropsType {
   atHome: boolean;
 }
@@ -35,7 +36,7 @@ function Header({ atHome }: PropsType) {
     >
       <div className={style.header__left}>
         <DehazeIcon className={style.iconBar} onClick={() => handleOpenSideBar()} />
-        <div className={style.logo}>
+        <div onClick={() => router.push("/")} className={style.logo}>
           <img className={style.imgLogo} src="/logo.jpg" />
         </div>
       </div>

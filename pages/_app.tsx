@@ -32,6 +32,7 @@ function MyApp({ Component, pageProps }) {
   });
   const router = useRouter();
   const atHome = router.asPath === "/";
+  const atCart = router.asPath === "/cart";
   const listNotLayOut = ["/auth"];
   const isNotLayOut = listNotLayOut.includes(router.pathname);
   useEffect(() => {
@@ -63,7 +64,7 @@ function MyApp({ Component, pageProps }) {
     <>
       <ThemeProvider theme={theme}>
         {!isNotLayOut ? (
-          <LayOut atHome={atHome}>
+          <LayOut atCart={atCart} atHome={atHome}>
             <Component {...pageProps} />
           </LayOut>
         ) : (

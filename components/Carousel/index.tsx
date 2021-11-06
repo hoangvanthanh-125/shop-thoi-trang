@@ -1,13 +1,11 @@
-import React, { useState, useEffect } from "react";
-import { listCarousel } from "../../fakeData";
-import style from "./../../styles/layout/Carousel.module.scss";
-import Slider from "react-slick";
 import Head from "next/head";
 import Link from "next/link";
-import ArrowRightIcon from "@material-ui/icons/ArrowRight";
-import snowStyle from "./../../styles/layout/Snow.module.scss";
-import AcUnitIcon from "@material-ui/icons/AcUnit";
 import router from "next/router";
+import React, { useState } from "react";
+import Slider from "react-slick";
+import { listCarousel } from "../../fakeData";
+import style from "./../../styles/layout/Carousel.module.scss";
+import snowStyle from "./../../styles/layout/Snow.module.scss";
 export const renderSnow = () => {
   const snow = <div className={snowStyle.snow}></div>;
   const listSnow = [];

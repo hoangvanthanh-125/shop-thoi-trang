@@ -1,0 +1,60 @@
+@import './../mixin';
+@import './../variant/varinant';
+.wrapFooter {
+  padding: 30px 20px;
+  background:$main-color ;
+  color: $second-color;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 200px;
+  max-height: 500px;
+  @media (max-width:740px){
+    flex-direction: column;
+    height: 300px;
+  }
+}
+.atCart{
+  @media(max-width:740px){
+    display: none;
+  }
+}
+
+.wrapContact{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.iconFb {
+  color: blue;
+  margin-right: 5px;
+  font-size: xx-large;
+}
+.iconInsta {
+  color: chocolate;
+  margin-right: 5px;
+  font-size: xx-large;
+}
+.iconTW {
+  color: rgb(106, 106, 190);
+  margin-right: 5px;
+  font-size: xx-large;
+}
+.gridItemFooter {
+height: 100% !important;
+ display: flex;
+ justify-content: flex-start;
+ align-items: flex-start;
+ flex-direction: column;
+ @media (max-width:740px){
+  align-items: center;
+}
+ .title{
+   margin-bottom: 10px;
+ }
+.description{
+  margin-bottom: 10px;
+}
+ 
+}
