@@ -7,6 +7,7 @@ import Link from "next/link";
 import ArrowRightIcon from "@material-ui/icons/ArrowRight";
 import snowStyle from "./../../styles/layout/Snow.module.scss";
 import AcUnitIcon from "@material-ui/icons/AcUnit";
+import router from "next/router";
 export const renderSnow = () => {
   const snow = <div className={snowStyle.snow}></div>;
   const listSnow = [];
@@ -44,18 +45,20 @@ function Carousel(props) {
           <div className={style.wrapBox} key={index}>
             <img src={item.url} className={style.box} />
             <div className={style.overlayBox}></div>
-            <img
-              src="https://vcdn1-giaitri.vnecdn.net/2012/03/13/250tt3-1345820453.jpg?w=300&h=180&q=100&dpr=1&fit=crop&s=MKi1sBjyg6eeM_V_582J6w"
-              className={style.imageCarosel}
-            ></img>
-            <img
-              src="https://top.chon.vn/wp-content/uploads/2019/08/shop-do-vest-nam-4-250x150.jpg"
-              className={`${style.imageCarosel} ${style.imageCarosel_1}`}
-            ></img>
-            <img
-              src="https://vcdn1-giaitri.vnecdn.net/2010/10/27/thoitrangsp1-1345733177.jpg?w=300&h=180&q=100&dpr=1&fit=crop&s=oEykH0rUKNJliaB71gs4mg"
-              className={`${style.imageCarosel} ${style.imageCarosel_2}`}
-            ></img>
+            <div className={style.wrapImg}>
+              <img
+                src="https://vcdn1-giaitri.vnecdn.net/2012/03/13/250tt3-1345820453.jpg?w=300&h=180&q=100&dpr=1&fit=crop&s=MKi1sBjyg6eeM_V_582J6w"
+                className={style.imageCarosel}
+              ></img>
+              <img
+                src="https://top.chon.vn/wp-content/uploads/2019/08/shop-do-vest-nam-4-250x150.jpg"
+                className={`${style.imageCarosel} ${style.imageCarosel_1}`}
+              ></img>
+              <img
+                src="https://vcdn1-giaitri.vnecdn.net/2010/10/27/thoitrangsp1-1345733177.jpg?w=300&h=180&q=100&dpr=1&fit=crop&s=oEykH0rUKNJliaB71gs4mg"
+                className={`${style.imageCarosel} ${style.imageCarosel_2}`}
+              ></img>
+            </div>
             <div className={style.contact}>
               <h3 className={style.contact__slogan}>Xu hướng thời trang</h3>
               <h2 className={style.contact__nameshop}>Thành Shop</h2>
@@ -69,6 +72,15 @@ function Carousel(props) {
               <Link href="/products" passHref>
                 <p className={style.contact__action}>Xem sản phẩm</p>
               </Link>
+            </div>
+            <div className={style.contactMobile}>
+              <div className={style.wrapContactMobile}>
+                <h2 className={style.nameShop}>Thành Shop</h2>
+                <p className={style.title}>Xu hướng thời trang</p>
+                <button onClick={() => router.push("/products")} className={style.action}>
+                  Xem sản phẩm
+                </button>
+              </div>
             </div>
             {/* <ArrowRightIcon className={style.iconSnow} /> */}
             {}

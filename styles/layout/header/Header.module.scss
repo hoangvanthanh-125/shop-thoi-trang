@@ -67,6 +67,19 @@
   }
 
 }
+.logo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $second-color;
+  font-weight: 600;
+  .imgLogo{
+    width: 120px;
+    @media (max-width:740px){
+      width: 100px;
+    }
+  }
+}
 .formSearch {
   width: 100%;
   display: flex;
