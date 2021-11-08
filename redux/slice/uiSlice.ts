@@ -11,6 +11,7 @@ interface State {
   isOpenModal: boolean;
   headModal: string;
   bodyModal: any;
+  isOpenListColor:boolean
 }
 const initialState = {
   isOpenSideBar: false,
@@ -22,6 +23,7 @@ const initialState = {
   isOpenModal: false,
   headModal: "",
   bodyModal: null,
+  isOpenListColor:false
 } as State;
 
 const uiSlice = createSlice({
@@ -69,6 +71,12 @@ const uiSlice = createSlice({
     },
     closeModal: (state) => {
       state.isOpenModal = false;
+    },
+    openListColor: (state) => {
+      state.isOpenListColor = true;
+    },
+    closeListColor: (state) => {
+      state.isOpenListColor = false;
     },
     fetchHeadModal: (state, action) => {
       state.headModal = action.payload;

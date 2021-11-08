@@ -2,12 +2,12 @@ import { createTheme, ThemeProvider } from "@material-ui/core/styles";
 import app, { AppContext } from "next/app";
 import { useRouter } from "next/router";
 import NProgress from "nprogress";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { ToastContainer } from "react-toastify";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import LayOut from "../components/layout";
-import { listCart } from "../fakeData";
+import { listCart, listColor } from "../fakeData";
 import { useAppDispatch } from "../redux/hook";
 import { cartActions } from "../redux/slice/cartSlice";
 import { wrapper } from "../redux/store";
@@ -15,9 +15,11 @@ import "../styles/globals.scss";
 import "../styles/nprogress.scss";
 import "react-toastify/dist/ReactToastify.css";
 import CssBaseline from "@mui/material/CssBaseline";
+import { isFulfilled } from "@reduxjs/toolkit";
 
 function MyApp({ Component, pageProps }) {
   const dispatch = useAppDispatch();
+  const [themeColor, setThemeColor] = useState(listColor[0]);
   const { list } = pageProps;
   const theme = createTheme({
     breakpoints: {
@@ -35,6 +37,19 @@ function MyApp({ Component, pageProps }) {
   const atCart = router.asPath === "/cart";
   const listNotLayOut = ["/auth"];
   const isNotLayOut = listNotLayOut.includes(router.pathname);
+  const handleChangedThemeColor = (color: string) => {
+    setThemeColor(color);
+  };
+  useEffect(() => {
+    if (typeof document !== undefined) {
+      const theme = document.querySelectorAll<HTMLElement>(".theme");
+      console.log(theme.length);
+
+      for (let i = 0; i < theme.length; i++) {
+        theme[i].style.background = themeColor;
+      }
+    }
+  });
   useEffect(() => {
     const jssStyles = document.querySelector("#jss-server-side");
     if (jssStyles) {
@@ -49,6 +64,7 @@ function MyApp({ Component, pageProps }) {
       alert(err.message);
     }
   }, []);
+
   useEffect(() => {
     router.events.on("routeChangeStart", (url) => {
       NProgress.start();
@@ -64,7 +80,12 @@ function MyApp({ Component, pageProps }) {
     <>
       <ThemeProvider theme={theme}>
         {!isNotLayOut ? (
-          <LayOut atCart={atCart} atHome={atHome}>
+          <LayOut
+            themeColor={themeColor}
+            handleChangedThemeColor={handleChangedThemeColor}
+            atCart={atCart}
+            atHome={atHome}
+          >
             <Component {...pageProps} />
           </LayOut>
         ) : (

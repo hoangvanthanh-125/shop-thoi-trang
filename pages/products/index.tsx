@@ -39,7 +39,7 @@ function ProductsPage({ listProduct }: InferGetServerSidePropsType<typeof getSer
         </Grid>
         <Grid className={style.productContainer} item container spacing={0} sm={9} md={9} xs={12}>
           <Grid item sm={12} md={12} xs={12}>
-            <div className={style.intro}>
+            <div className={`${style.intro} theme`}>
               <h5 className={textStyle.h1} data-text={currentListTypeProduct[0]?.name}>
                 <span className={textStyle.span}>{currentListTypeProduct[0]?.name}</span>
               </h5>

@@ -29,19 +29,19 @@ function UserInfoWithAuth() {
     dispatch(uiActions.openModal());
     dispatch(uiActions.fetchHeadModal("Đổi tên"));
     dispatch(uiActions.fetchBodyModal(<FormChangeNameUser />));
-  }
+  };
   const handleClickHistory = () => {
     router.push("/history");
     dispatch(uiActions.closeOverlay());
     dispatch(uiActions.closeUserInfo());
-  }
+  };
   return (
     <div className={style.container}>
       <div className={style.avatar}>
         <Avatar className={style.avatarIcon} src="">
           T
         </Avatar>
-        <label className={style.inputFile} htmlFor="inputFile">
+        <label className={`${style.inputFile} theme`} htmlFor="inputFile">
           <CameraAltOutlinedIcon />
           <p className={style.title}>Tải ảnh lên</p>
         </label>
@@ -53,13 +53,16 @@ function UserInfoWithAuth() {
             <AccountCircleOutlinedIcon />
             <p className={style.titleItem}>Hoàng văn Thành</p>
           </div>
-          <EditOutlinedIcon onClick = {() => handleClickOpenModalChangeNameUser()} className={style.editNameUser} />
+          <EditOutlinedIcon
+            onClick={() => handleClickOpenModalChangeNameUser()}
+            className={style.editNameUser}
+          />
         </div>
         <div className={style.wrapItem}>
           <EmailOutlinedIcon />
           <p className={style.titleItem}>thanh@gmail.com</p>
         </div>
-        <div onClick = {() =>handleClickHistory()} className={style.wrapItem}>
+        <div onClick={() => handleClickHistory()} className={style.wrapItem}>
           <ShoppingCartOutlinedIcon />
           <p className={style.titleItem}>Lịch sử mua hàng</p>
         </div>

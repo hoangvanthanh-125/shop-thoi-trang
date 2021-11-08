@@ -32,7 +32,7 @@ function Header({ atHome }: PropsType) {
     <div
       className={`${style.header} ${colorHeader && atHome && style.headerColor} ${
         !atHome && style.headerNoAtHome
-      }`}
+      } theme`}
     >
       <div className={style.header__left}>
         <DehazeIcon className={style.iconBar} onClick={() => handleOpenSideBar()} />

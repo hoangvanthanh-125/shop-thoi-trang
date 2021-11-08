@@ -1,9 +1,6 @@
 @import '../../variant/varinant';
 @import '../../mixin';
-.headerNoAtHome{
-  background: $main-color !important;
-  width: 100% ;
-}
+
 .header {
   height: $height-header;
   position: fixed;
@@ -66,6 +63,12 @@
     
   }
 
+}
+.headerNoAtHome{
+  // background: $main-color !important;
+  background: $main-color ;
+
+  width: 100% ;
 }
 .logo{
   display: flex;

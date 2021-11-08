@@ -52,9 +52,13 @@ function CartItem({ item, handleChangeCheckbox, updateCart, hanldeDeleteCart }: 
           <p className={style.title}>Số lượng</p>
           <div className={style.wrapButton}>
             {" "}
-            <button onClick={() => updateCart(item, -1)}>-</button>
+            <button className="theme" onClick={() => updateCart(item, -1)}>
+              -
+            </button>
             {item?.quantity}
-            <button onClick={() => updateCart(item, 1)}>+</button>
+            <button className="theme" onClick={() => updateCart(item, 1)}>
+              +
+            </button>
           </div>
         </div>
         <DeleteIcon onClick={() => hanldeDeleteCart(item)} className={style.iconDelete} />

@@ -57,7 +57,7 @@
 
     .noAt {
       color: $main-color;
-      background: $second-color;
+      background: $second-color !important;
       border: 1px solid $main-color;
     }
   }

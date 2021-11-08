@@ -288,3 +288,5 @@ export const listProducts:Product[] = [
     sale: 0.3,
   },
 ];
+export const listColor = ["black","red","yellow","teal","blue","violet","orange","linear-gradient(#2193b0,#6dd5ed)","linear-gradient(#11998e,#38ef7d)",
+"linear-gradient(#348F50,#56B4D3)","linear-gradient(#c31432,#c31432)","linear-gradient(#0F2027,#203A43,#2C5364)","linear-gradient(#1f4037,#99f2c8)"];

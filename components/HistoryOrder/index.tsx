@@ -62,7 +62,7 @@ function HistoryOrder(props) {
       <div className={style.noProduct}>
         <img src="/empty.png" style={{ width: 100, height: 100 }} />
         <h2 className={style.title}>Không có gì để hiển thị</h2>
-        <button onClick={() => router.push("/products")} className={style.button}>
+        <button onClick={() => router.push("/products")} className={`${style.button}`}>
           Tiếp tục mua sắm
         </button>
       </div>

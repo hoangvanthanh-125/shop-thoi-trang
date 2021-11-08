@@ -8,8 +8,8 @@ interface Props {
 }
 function Footer({ atCart }: Props) {
   return (
-    <div className={`${style.wrapFooter} ${atCart ? style.atCart : ""}`}>
-      <div className={style.gridItemFooter}>
+    <div className={`${style.wrapFooter} ${atCart ? style.atCart : ""} theme`}>
+      <div className={`${style.gridItemFooter}`}>
         <h3 className={style.title}>Hệ thống cửa hàng</h3>
         <p className={style.description}>Địa chỉ: Ngõ 105 Doãn Kế Thiện</p>
         <p className={style.description}>Số điện thoại:012345678</p>

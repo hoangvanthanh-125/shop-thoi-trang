@@ -9,6 +9,7 @@ import { CartType } from "../../types";
 import style from "./../../styles/layout/Cart.module.scss";
 import Head from "next/head";
 import { showPrice } from "../../common/customPrice";
+import { toast } from "react-toastify";
 
 function Cart({}) {
   const dispatch = useAppDispatch();
@@ -65,7 +66,7 @@ function Cart({}) {
   };
   const handleClickPayment = () => {
     if (listCartPayment.length === 0) {
-      alert("Không có sản phẩm nào được chọn");
+      toast.warning("Không có sản phẩm nào được chọn");
     } else {
       dispatch(paymentAction.fetchListPayment(listCartPayment));
       router.push("/payment");
@@ -93,11 +94,11 @@ function Cart({}) {
         </Grid>
         <Grid className={style.container__payment} item md={3} sm={4} xs={12}>
           <Card className={style.payment}>
-            <p className={`${style.payment__title} `}>Tổng tiền</p>
+            <p className={`${style.payment__title} theme `}>Tổng tiền</p>
             <p className={`${style.payment__price} ${style.price}`}>{showPrice(totalMoney)}</p>
-            <button onClick={() => handleClickPayment()} className={style.payment__action}>
+            <div onClick={() => handleClickPayment()} className={`${style.payment__action} theme`}>
               Thanh toán ngay
-            </button>
+            </div>
           </Card>
         </Grid>
       </Grid>
@@ -107,7 +108,10 @@ function Cart({}) {
             Tổng tiền : <span className={style.price}>{showPrice(totalMoney)}</span>
           </p>
         </div>
-        <div onClick={() => handleClickPayment()} className={style.payment__mobile__right}>
+        <div
+          onClick={() => handleClickPayment()}
+          className={`${style.payment__mobile__right} theme`}
+        >
           Thanh toán
         </div>
       </div>
@@ -116,7 +120,7 @@ function Cart({}) {
     <div className={style.noCart}>
       <img src="/empty.png" style={{ width: 100, height: 100 }} />
       <h2 className={style.noCart__title}>Không có sản phẩm nào trong giỏ hàng</h2>
-      <button onClick={() => router.push("/products")} className={style.noCart__button}>
+      <button onClick={() => router.push("/products")} className={`${style.noCart__button} theme`}>
         Tiếp tục mua sắm
       </button>
     </div>

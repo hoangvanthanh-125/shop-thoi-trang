@@ -43,7 +43,7 @@ function Auth(props) {
           <div className={style.switch}>
             <button
               onClick={() => setAuth("login")}
-              className={`${style.switchLogin} ${auth === "register" ? style.noAt : ""}`}
+              className={`${style.switchLogin} ${auth === "register" ? style.noAt : ""} `}
             >
               Login
             </button>
@@ -51,7 +51,7 @@ function Auth(props) {
               onClick={() => setAuth("register")}
               className={`${style.switchRegister} ${
                 auth === "login" || auth === "" ? style.noAt : ""
-              }`}
+              } `}
             >
               Register
             </button>

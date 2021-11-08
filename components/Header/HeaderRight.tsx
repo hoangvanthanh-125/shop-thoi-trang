@@ -26,6 +26,10 @@ function HeaderRight(props) {
     dispatch(uiActions.openSearchMobile());
     dispatch(uiActions.openOverlay());
   };
+  const handleOpenListColor = () => {
+    dispatch(uiActions.openListColor());
+    dispatch(uiActions.openOverlay());
+  };
   const hancleClick = (name: string) => {
     if (name === "Sản phẩm") {
       router.push("/products");
@@ -105,7 +109,9 @@ function HeaderRight(props) {
               </div>
               <div className={style.listCart__footer}>
                 <span>{totalQuantityProduct} thêm vào giỏ hàng</span>
-                <button onClick={() => router.push("/cart")}>Xem giỏ hàng</button>
+                <button className="theme" onClick={() => router.push("/cart")}>
+                  Xem giỏ hàng
+                </button>
               </div>
             </div>
           ) : (
@@ -113,8 +119,13 @@ function HeaderRight(props) {
           )}
         </div>
       </div>
+      <div onClick={() => handleOpenListColor()} className={style.theme}></div>
       <div onClick={() => handleClickOpenInfoUser()}>
-        <Avatar style={{ width: 30, height: 30, cursor: "pointer" }} src=""></Avatar>
+        <Avatar
+          className={style.avatar}
+          style={{ width: 25, height: 25, cursor: "pointer" }}
+          src=""
+        ></Avatar>
       </div>
     </div>
   );

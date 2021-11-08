@@ -50,7 +50,7 @@ function FormLogin(props) {
         <input
           style={{ flexBasis: "100%", marginRight: 0 }}
           type="submit"
-          className={style2.action__submit}
+          className={`${style2.action__submit} theme`}
           value="Đăng nhập"
         />
       </div>

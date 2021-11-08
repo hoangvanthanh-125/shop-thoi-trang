@@ -48,7 +48,7 @@ function FormComment({
         handleUpdateComment({
           ...itemEditing,
           content: textCmt,
-          star
+          star,
         });
       }
       if (handleCloseEdit) {
@@ -62,10 +62,10 @@ function FormComment({
     if (itemEditing) {
       if (typeof document !== undefined) {
         const input = document.getElementById(`${itemEditing?.idComment}`);
-        input.focus(); 
-        var val = (input as HTMLInputElement).value; 
-        (input as HTMLInputElement).value = ""; 
-        (input as HTMLInputElement).value = val; 
+        input.focus();
+        var val = (input as HTMLInputElement).value;
+        (input as HTMLInputElement).value = "";
+        (input as HTMLInputElement).value = val;
       }
     }
   }, []);
@@ -88,25 +88,19 @@ function FormComment({
           id={`${itemEditing?.idComment}`}
           onChange={handleChangeCmt}
           value={textCmt}
-          className={` ${itemEditing && style.inputEdit} ${
-            style.formComment__inputCmt
-          }`}
+          className={` ${itemEditing && style.inputEdit} ${style.formComment__inputCmt}`}
           placeholder="Viết bình luận"
         />
-        <div
-          className={`${style.wrapAction} ${itemEditing && style.formEdit} `}
-        >
+        <div className={`${style.wrapAction} ${itemEditing && style.formEdit} `}>
           <input
-            className={`${style.formComment__submitCmt}`}
+            className={`${style.formComment__submitCmt} theme`}
             type="submit"
             value={handleUpdateComment ? "Cập nhật" : "Đăng"}
           />
           {handleUpdateComment && (
             <button
               onClick={handleCloseEdit}
-              className={`${style.formComment__submitCmt} ${
-                itemEditing && style.cancelEdit
-              } `}
+              className={`${style.formComment__submitCmt} ${itemEditing && style.cancelEdit} `}
             >
               Huỷ bỏ
             </button>

@@ -57,16 +57,32 @@
     color: $second-text-color;
     margin-right: 20px;
     display: none;
+    @media (max-width:360px){
+      margin-right: 10px;
+      width: 20px;
+      height: 20px;
+    }
   }
 
   .wrapcart {
     position: relative;
     cursor: pointer;
     margin-right: 20px;
+    @media (max-width:360px){
+      margin-right: 10px;
+      
+    }
+   
 
     .iconCart {
 
       color: $second-text-color;
+      @media (max-width:360px){
+       
+        width: 20px;
+        height: 20px;
+      }
+     
     }
 
     @media (min-width :1024px) {
@@ -225,6 +241,28 @@
         z-index: 100;
         display: flex;
       }
+    }
+  }
+  .theme{
+    width: 25px;
+    height: 25px;
+    background-color: white;
+    border-radius: 30px;
+    margin-right: 10px;
+    font-size: 10px;
+    cursor: pointer;
+    background: linear-gradient(#2193b0,#6dd5ed,red,violet);
+    border: 2px solid white;
+    @media (max-width:360px){
+      width: 20px;
+      height: 20px;
+    }
+
+  }
+  .avatar{
+    @media (max-width:360px){
+      width: 20px !important;
+      height: 20px !important;
     }
   }
 

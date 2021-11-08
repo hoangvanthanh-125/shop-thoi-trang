@@ -100,7 +100,7 @@ function ProductDetailInfo({ product }: PropsType) {
         </div>
       </div>
       <div className={style.action}>
-        <div onClick={() => handleCickBuy()} className={style.action__payment}>
+        <div onClick={() => handleCickBuy()} className={`${style.action__payment} theme`}>
           Mua ngay
         </div>
         <div onClick={() => handleClickAddCart()} className={style.action__addCart}>

@@ -6,7 +6,7 @@ import style from "./../../styles/layout/infoUserNotAuth.module.scss";
 import UserInfoNotAuth from "./UserInfoNotAuth";
 import UserInfoWithAuth from "./UserInfoWithAuth";
 function InfoUser(props) {
-  const [isAuth, setAuth] = useState(false);
+  const [isAuth, setAuth] = useState(true);
   const { isOpenUserInfo } = useAppSelector((state) => state.uiReducer);
   const dispatch = useAppDispatch();
   const handleClickCloseUserInfo = () => {

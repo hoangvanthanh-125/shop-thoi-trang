@@ -126,7 +126,7 @@ function PaymentForm(props) {
         />
         <p className={style.notiError}>{errors.specificLocation?.message}</p>
       </div>
-      <input className={style.buttonSubmit} type="submit" />
+      <input className={`${style.buttonSubmit} theme`} type="submit" />
     </form>
   );
 }
