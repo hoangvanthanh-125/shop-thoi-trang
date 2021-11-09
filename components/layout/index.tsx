@@ -39,7 +39,7 @@ function LayOut({ children, atHome, atCart, handleChangedThemeColor, themeColor 
       <div
         className={`${style.header__searchMobile} ${
           !isOpenSearchMobile && style.header__searchMobileAppear
-        }`}
+        } theme`}
       >
         <HeaderSearch />
       </div>

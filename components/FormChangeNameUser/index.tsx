@@ -6,7 +6,7 @@ import * as yup from "yup";
 import { InputField } from "../../helper/InputField";
 import { useAppDispatch } from "../../redux/hook";
 import { uiActions } from "../../redux/slice/uiSlice";
-import style2 from './../../styles/layout/FormChangePassWord.module.scss';
+import style2 from "./../../styles/layout/FormChangePassWord.module.scss";
 
 function FormChangeNameUser(props) {
   const dispatch = useAppDispatch();
@@ -38,21 +38,14 @@ function FormChangeNameUser(props) {
   return (
     <form onSubmit={onSubmit}>
       <div className={style.wrapField}>
-        <InputField
-          type="text"
-          placeholder="Nhập tên mới"
-          name="newName"
-          control={control}
-        />
+        <InputField type="text" placeholder="Nhập tên mới" name="newName" control={control} />
         <p className={style.notiError}>{errors.newName?.message}</p>
       </div>
       <div className={style2.action}>
-        <input
-          type="submit"
-          className={style2.action__submit}
-          value="Cập nhật"
-        />
-        <button type="button" onClick={() => handleCancel()} className={style2.action__cancel}>Hủy bỏ</button>
+        <input type="submit" className={`${style2.action__submit} theme`} value="Cập nhật" />
+        <button type="button" onClick={() => handleCancel()} className={style2.action__cancel}>
+          Hủy bỏ
+        </button>
       </div>
     </form>
   );

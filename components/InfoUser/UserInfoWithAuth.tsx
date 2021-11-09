@@ -70,7 +70,7 @@ function UserInfoWithAuth() {
           <VpnKeyOutlinedIcon />
           <p className={style.titleItem}>Đổi mật khẩu</p>
         </div>
-        <div className={style.wrapItem}>
+        <div onClick={() => router.push("/auth?type=login")} className={style.wrapItem}>
           <ExitToAppOutlinedIcon />
           <p className={style.titleItem}>Đăng xuất</p>
         </div>

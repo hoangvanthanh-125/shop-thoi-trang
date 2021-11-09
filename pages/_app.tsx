@@ -41,29 +41,26 @@ function MyApp({ Component, pageProps }) {
     setThemeColor(color);
   };
   useEffect(() => {
-    console.log("App chay");
-
-    if (typeof document !== undefined && typeof window !== undefined) {
-      const theme = document.querySelectorAll<HTMLElement>(".theme");
-      for (let i = 0; i < theme.length; i++) {
-        theme[i].style.background = themeColor;
-      }
-      const header = document.getElementById("header");
-      if (atHome) {
-        console.log("Taij home");
-
-        header.style.background = "transparent";
-        var changeColorHeader = () => {
-          if (window.scrollY > 74) {
-            header.style.background = themeColor;
-          } else {
-            header.style.background = "transparent";
-          }
-        };
-        window.addEventListener("scroll", changeColorHeader);
-      } else {
-        header.style.background = themeColor;
-        console.log("ko taij hoem");
+    if (!isNotLayOut) {
+      if (typeof document !== undefined && typeof window !== undefined) {
+        const theme = document.querySelectorAll<HTMLElement>(".theme");
+        for (let i = 0; i < theme.length; i++) {
+          theme[i].style.background = themeColor;
+        }
+        const header = document.getElementById("header");
+        if (atHome) {
+          header.style.background = "transparent";
+          var changeColorHeader = () => {
+            if (window.scrollY > 74) {
+              header.style.background = themeColor;
+            } else {
+              header.style.background = "transparent";
+            }
+          };
+          window.addEventListener("scroll", changeColorHeader);
+        } else {
+          header.style.background = themeColor;
+        }
       }
     }
     return () => {

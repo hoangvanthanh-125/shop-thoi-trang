@@ -15,12 +15,10 @@ function FilterMobile(props) {
     dispatch(uiActions.closeFilterMobile());
   };
   return (
-    <div
-      className={`${style.wrap} ${!isOpenFilterMobile && style.filterApear}`}
-    >
+    <div className={`${style.wrap} ${!isOpenFilterMobile && style.filterApear} `}>
       <div className={style.wrap__headfilter}>
         <h3>Lọc sản phẩm</h3>
-        <ClearIcon style={{cursor:'pointer'}} onClick={() => handleClose()} />
+        <ClearIcon style={{ cursor: "pointer" }} onClick={() => handleClose()} />
       </div>
       <FilterBody openFilter={true} />
     </div>

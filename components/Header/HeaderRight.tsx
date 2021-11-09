@@ -74,7 +74,7 @@ function HeaderRight(props) {
           style={{ position: "relative", zIndex: 1000000000000 }}
           onClick={() => router.push("/cart")}
         >
-          <Badge badgeContent={totalQuantityProduct} color="primary">
+          <Badge badgeContent={totalQuantityProduct} color="secondary">
             <ShoppingCartOutlinedIcon className={style.iconCart} />{" "}
           </Badge>
         </div>
