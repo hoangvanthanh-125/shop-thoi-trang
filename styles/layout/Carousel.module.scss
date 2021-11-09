@@ -65,14 +65,14 @@
   width: 400px;
   color: white;
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   flex-direction: column;
 
   &__nameshop {
     display: inline;
     position: relative;
     margin-bottom: 20px;
-    text-align: start;
+    text-align: flex-start;
     font-family: $font-special;
     font-size: 35px;
 
@@ -90,20 +90,20 @@
 
   &__slogan {
     margin-bottom: 20px;
-    text-align: start;
+    text-align: flex-start;
     color: rgb(160, 150, 150);
   }
 
   &__description {
     margin-bottom: 20px;
-    text-align: start;
+    text-align: flex-start;
     color: rgb(160, 150, 150);
     line-height: 25px;
   }
 
   &__action {
     margin-bottom: 20px;
-    text-align: start;
+    text-align: flex-start;
     cursor: pointer;
     display: inline;
 
@@ -157,12 +157,12 @@
     .title{
       margin-top: 15px;
       color:rgb(177, 169, 169);
-      text-align: start;
+      text-align: flex-start;
     }
     .action{
       margin-top: 15px;
       color:white;
-      text-align: start;
+      text-align: flex-start;
       @include button-style;
       background: transparent;
       border: 1px solid rgb(179, 174, 174);

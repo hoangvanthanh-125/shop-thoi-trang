@@ -37,7 +37,7 @@
   padding: 20px;
   cursor: pointer;
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   &:hover{
     background: $hover-color;
@@ -51,7 +51,7 @@
   justify-content: space-between;
   .nameUser{
     display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   }
   .editNameUser{

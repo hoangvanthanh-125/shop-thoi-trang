@@ -11,7 +11,7 @@ import ScrollTop from "../ScrollTop";
 import SideBar from "../Sidebar";
 import ThemeColor from "../ThemeColor";
 import style from "./../../styles/layout/header/Header.module.scss";
-import styleLayout from "./../../styles/layout/index.module.scss";
+// import styleLayout from "./../../styles/layout/index.module.scss";
 import Header from "./../Header/index";
 interface Props {
   handleChangedThemeColor?: (color: string) => void;
@@ -26,7 +26,7 @@ function LayOut({ children, atHome, atCart, handleChangedThemeColor, themeColor 
   return (
     <>
       <Header atHome={atHome} />
-      <main className={styleLayout.main}>{children}</main>
+      <main>{children}</main>
       <Footer atCart={atCart} />
       <SideBar />
       <Overlay />

@@ -1,18 +1,15 @@
-import React, { useState } from "react";
-import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
-import AccountCircleIcon from "@material-ui/icons/AccountCircle";
-import { listCart, listDanhmuc, listHeader } from "../../fakeData";
-import style from "../../styles/layout/header/HeaderRight.module.scss";
-import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
+import { Avatar } from "@material-ui/core";
+import Badge from "@material-ui/core/Badge";
 import SearchIcon from "@material-ui/icons/Search";
+import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import React from "react";
+import { showPrice } from "../../common/customPrice";
+import { listDanhmuc, listHeader } from "../../fakeData";
 import { useAppDispatch, useAppSelector } from "../../redux/hook";
 import { uiActions } from "../../redux/slice/uiSlice";
-import { useRouter } from "next/router";
-import Badge from "@material-ui/core/Badge";
-import Link from "next/link";
-import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
-import { Avatar } from "@material-ui/core";
-import { showPrice } from "../../common/customPrice";
+import style from "../../styles/layout/header/HeaderRight.module.scss";
 function HeaderRight(props) {
   const { isOpenSearchMobile } = useAppSelector((state) => state.uiReducer);
   const router = useRouter();
