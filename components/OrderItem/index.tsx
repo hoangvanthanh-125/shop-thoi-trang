@@ -1,11 +1,11 @@
 import { Card } from "@material-ui/core";
+import { Label } from "@material-ui/icons";
+import { useRouter } from "next/router";
 import React from "react";
+import { showPrice } from "../../common/customPrice";
 import { CartType, OrderProduct } from "../../types";
 import style from "./../../styles/layout/Cart.module.scss";
-import DeleteIcon from "@material-ui/icons/Delete";
 import style2 from "./../../styles/layout/OrderItem.module.scss";
-import { useRouter } from "next/router";
-import { showPrice } from "../../common/customPrice";
 
 interface OrderProps {
   item: CartType;
@@ -51,7 +51,7 @@ function OrderItem({
         </div>
         <div className={style.item__price}>
           <p className={style.title}>Giá</p>
-          <p>{item?.cartItem.price}</p>
+          <p style={{ color: "red" }}>{showPrice(item?.cartItem.price)}</p>
         </div>
         <div className={style.item__action}>
           <p className={style.title}>Số lượng</p>
@@ -61,10 +61,17 @@ function OrderItem({
       <div className={style2.wrapActionTotal}>
         <div className={style2.total}>
           <p className={style.title}>Tổng cộng : </p>
-          <p className={style.totalPrice}>{item.cartItem.price * item.quantity}</p>
+          <p style={{ color: "red" }} className={style.totalPrice}>
+            {showPrice(item.cartItem.price * item.quantity)}
+          </p>
         </div>
         <div className={style2.action}>
-          <button onClick={() => handleClickButton()} className={style2.buttonAction}>
+          <button
+            onClick={() => handleClickButton()}
+            className={`${style2.buttonAction} ${
+              status === "delivering" ? style2.actionDelivering : ""
+            }`}
+          >
             {labelButton}
           </button>
           {status === "delivering" && (

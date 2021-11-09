@@ -20,19 +20,13 @@ function Header({ atHome }: PropsType) {
     dispatch(uiActions.openSideBar());
     dispatch(uiActions.openOverlay());
   };
-  if (typeof window !== "undefined") {
-    const changeColorHeader = () => {
-      if (window.scrollY > 74) {
-        setColorHeader(true);
-      } else setColorHeader(false);
-    };
-    window.addEventListener("scroll", changeColorHeader);
-  }
+
   return (
     <div
+      id="header"
       className={`${style.header} ${colorHeader && atHome && style.headerColor} ${
         !atHome && style.headerNoAtHome
-      } theme`}
+      } `}
     >
       <div className={style.header__left}>
         <DehazeIcon className={style.iconBar} onClick={() => handleOpenSideBar()} />
