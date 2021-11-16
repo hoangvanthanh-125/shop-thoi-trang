@@ -36,8 +36,11 @@
   }
 }
 .wrapCartItem{
+  @include box-style;
   position: relative;
   padding: 20px 0;
+  margin-bottom: 20px;
+  
 }
 
 .cart {
@@ -69,7 +72,7 @@ padding: 20px;
     padding: 0 30px;
     height: 100px;
     box-sizing: border-box !important;
-    margin-top: 20px;
+    margin-top: 20px ;
     display: flex;
     justify-content: space-between;
     align-items: center;

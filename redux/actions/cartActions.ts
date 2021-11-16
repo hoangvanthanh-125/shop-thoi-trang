@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { CartType } from "../../pages/cart";
+import { CartType } from "../../types";
 import { listCart } from "./../../fakeData/index";
 export const fetchAllListCart = createAsyncThunk(
   "fetchCart",

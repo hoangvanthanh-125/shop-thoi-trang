@@ -34,11 +34,13 @@ function ProductType({
 export const getServerSideProps: GetServerSideProps<PropsType> = async (
   context: GetServerSidePropsContext
 ) => {
-  const product: Product = listProducts[0];
+  const id = context.query.params[0];
+  const product: Product = listProducts.find((item) => item.id === id);
+
   //call ListComment cuar Product
   return {
     props: {
-      product,
+      product: product || listProducts[0],
       listComment: [],
     },
   };

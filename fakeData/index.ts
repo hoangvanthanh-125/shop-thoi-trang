@@ -113,7 +113,7 @@ export const listCarousel = [
 export const listProducts:Product[] = [
   {
     id: "1",
-    name: "Áo sơ mi",
+    name: "Áo sơ mi 1",
     price: 100000,
     // listImg?: string;
     listSize: ["XS", "M", "L"],
@@ -129,7 +129,7 @@ export const listProducts:Product[] = [
   },
   {
     id: "111",
-    name: "Áo sơ mi",
+    name: "Áo sơ mi 2",
     price: 1000000,
     // listImg?: string;
     listSize: ["XS", "M", "L"],
@@ -145,7 +145,7 @@ export const listProducts:Product[] = [
   },
   {
     id: "12",
-    name: "Áo sơ mi",
+    name: "Áo sơ mi 3",
     price: 1000000,
     // listImg?: string;
     listSize: ["XS", "M", "L"],
@@ -161,7 +161,7 @@ export const listProducts:Product[] = [
   },
   {
     id: "13",
-    name: "Áo sơ mi",
+    name: "Áo sơ mi 4",
     price: 1000000,
     // listImg?: string;
     listSize: ["XS", "M", "L"],

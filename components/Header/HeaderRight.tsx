@@ -87,7 +87,13 @@ function HeaderRight(props) {
               </div>
               <div className={style.listCart__body}>
                 {listCart.map((item, index) => (
-                  <div className={style.listCart__body__item} key={index}>
+                  <div
+                    onClick={() =>
+                      router.push(`/products/${item?.cartItem.id}/${item?.cartItem?.name}`)
+                    }
+                    className={style.listCart__body__item}
+                    key={index}
+                  >
                     <img src={item?.cartItem.listImg[0]} alt="" />
                     <div className={style.wrapInfoProduct}>
                       <div className={style.wrapNamePrice}>
